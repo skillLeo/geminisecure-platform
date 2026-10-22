@@ -1,0 +1,47 @@
+*.log
+.DS_Store
+.env
+.env.backup
+.env.production
+.phpactor.json
+.phpunit.result.cache
+/.codex
+/.cursor/
+/.idea
+/.nova
+/.phpunit.cache
+/.vscode
+/.zed
+/auth.json
+/node_modules
+/public/build
+/public/fonts-manifest.dev.json
+/public/hot
+/public/storage
+/storage/*.key
+/storage/pail
+/vendor
+_ide_helper.php
+Homestead.json
+Homestead.yaml
+Thumbs.db
+
+# Design import: snapshots are build inputs and ARE tracked.
+# Screenshots are large regenerable artifacts.
+/_design/screenshots/
+
+# Fidelity harness output - regenerate with: php artisan fidelity:check
+/_design/screenshots/
+/_design/SCREEN_TARGETS.json
+
+# Per-tenant storage created by stancl/tenancy's filesystem bootstrapper (logos, rendered documents).
+# Runtime data, including what the test suite writes for its fixture estate — never source.
+/storage/tenant*/
+
+# The client's site (M14, D-194): landing/ is its source; public/landing is what `npm run build` there makes.
+/public/landing
+/landing/node_modules
+# The Firefox and WebKit captures' pictures: their numbers and words are kept, and tools/landing makes them again.
+/landing-reference/browsers/**/*.png
+# The estate console QA suite's runs (M58): screenshots, dumps and downloads of a live site stay on this PC.
+/e2e/estate/out/

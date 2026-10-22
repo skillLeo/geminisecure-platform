@@ -1,0 +1,7 @@
+{
+  "name": "guard-ring",
+  "version": "1.0.0",
+  "private": true,
+  "description": "The Guard App's call-style ring: a panic rings the phone like a call, natively, even when the app is closed. Android only; autolinked from apps/guard/modules. JS reaches it only through apps/guard/src/features/ring/native.ts.",
+  "license": "UNLICENSED"
+}

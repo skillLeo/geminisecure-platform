@@ -1,0 +1,77 @@
+{
+  "measured": "2026-09-23",
+  "by": "node tools/gates/contrast.mjs --strict",
+  "complaint": "the color of the font is too pale ... on a sky blue background it is like a gray, it's not showing black",
+  "note": "Ratios are WCAG 2.1 contrast, the text composited onto the surface it is actually drawn on. AA body text needs 4.5 : 1. The sky blue the client named is navy-600, the stop every hero gradient and both auth backdrops open with.",
+  "rows": [
+    {
+      "where": "warnings and links across the sign-in screens (34 uses, 21 files)",
+      "was": "amber-600 on white",
+      "before": 2.23,
+      "now": "amber-700 on white",
+      "after": 5.57
+    },
+    {
+      "where": "warnings on the amber panel",
+      "was": "amber-600 on amber-100",
+      "before": 2.03,
+      "now": "amber-700 on amber-100",
+      "after": 5.07
+    },
+    {
+      "where": "timestamps, balances and detail lines",
+      "was": "slate-300 on white",
+      "before": 1.88,
+      "now": "slate-500 on white",
+      "after": 5.47
+    },
+    {
+      "where": "the same detail lines on tinted rows",
+      "was": "slate-300 on navy-100",
+      "before": 1.63,
+      "now": "slate-500 on navy-100",
+      "after": 4.75
+    },
+    {
+      "where": "links and the active tab on tinted rows",
+      "was": "navy-600 #1974D2 on navy-100",
+      "before": 4.08,
+      "now": "navy-600 #186DC5 on navy-100",
+      "after": 4.53
+    },
+    {
+      "where": "the amber eyebrow over a hero",
+      "was": "amber-100 on navy-600 #1974D2",
+      "before": 4.27,
+      "now": "amber-100 on navy-600 #186DC5",
+      "after": 4.74
+    },
+    {
+      "where": "the hero subtitle — the pale grey-on-sky-blue in the client's screenshot",
+      "was": "white faded to 0.72 on navy-600 #1974D2",
+      "before": 3.2,
+      "now": "white faded to 0.92 on navy-600 #186DC5",
+      "after": 4.66
+    },
+    {
+      "where": "the widest faded-white use: quorum lines, turnout, scanner hints, card labels",
+      "was": "white faded to 0.70 on navy-600 #1974D2",
+      "before": 3.11,
+      "now": "white faded to 0.92 on navy-600 #186DC5",
+      "after": 4.66
+    },
+    {
+      "where": "the panic screen's footnote, the dimmest text either app drew",
+      "was": "white faded to 0.40 on navy-900",
+      "before": 3.75,
+      "now": "white faded to 0.92 on navy-900",
+      "after": 14.22
+    }
+  ],
+  "changes": [
+    "35 faded-white text colours across 20 live screens raised to 0.92 — the lightest alpha that still clears 4.5 : 1 on navy-600. The lifted/ board copies are the fidelity reference and were left as drawn.",
+    "The brand blue navy-600 darkened 6 per cent, #1974D2 to #186DC5, through tools/tokens/accessibility-overrides.json. One token change carried the link, the eyebrow and the subtitle over 4.5 : 1 at once, and white on the primary button rose with them.",
+    "amber-600 and slate-300 are now decoration only — an icon, a divider, a fill. Neither is a text colour anywhere.",
+    "tools/gates/contrast.mjs fails the build on two new counts: a token drawn inside <Text> that no row measures, and white faded below 0.92 in a <Text>. Both holes are how the pale text got in."
+  ]
+}

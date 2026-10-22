@@ -1,0 +1,155 @@
+/* =====================================================================
+ * GeminiSecure design tokens
+ * =====================================================================
+ * The first 33 tokens are VERBATIM from the :root block of
+ *   _design/wireframes/GeminiSecure Foundation.dc.html
+ * which is the token source of truth (see _design/MANIFEST.md for its
+ * SHA-256).
+ *
+ * Three further tokens (--success-400/600/700) are added by client
+ * decision, resolving a success colour that Foundation used inline but
+ * never declared. See the block at the end of :root for the reasoning.
+ * Total: 36.
+ *
+ * Rules:
+ *   - A hex literal written inline in a component is a defect. Reference
+ *     these tokens instead.
+ *   - Semantic colours are LOCKED and must never be exposed to a tenant
+ *     theme picker. A tenant may theme navy and amber only. No
+ *     configuration may ever make "denied" look like "verified".
+ *   - Do not add, rename, round or "tidy" a value here without a
+ *     corresponding change in the wireframes.
+ *
+ * Regenerate/verify against the source with: pwsh tools/design-manifest.ps1
+ * ===================================================================== */
+
+:root {
+    --navy-900: #0B1F33;
+    --navy-800: #0F3D6B;
+    --navy-700: #123B6B;
+    --navy-600: #1974D2;
+    --navy-500: #2B84DE;
+    --navy-300: #8FB7E8;
+    --navy-200: #C9DEF5;
+    --navy-100: #E7F0FB;
+    --white: #FFFFFF;
+    --amber-500: #FFB627;
+    --amber-600: #E89F12;
+    --amber-700: #B87908;
+    --amber-100: #FFF3DC;
+    --purple-800: #3B2166;
+    --purple-900: #160A29;
+    --red-100: #FEE2E2;
+    --red-700: #B91C1C;
+    --slate-600: #3E5972;
+    --slate-500: #5C7A99;
+    --slate-300: #A9C0D6;
+    --app-bg: #F4F8FC;
+    --page-bg: #E7ECF3;
+
+    /* Guard app · dark surfaces */
+    --g-navy-900: #0B1A2B;
+    --g-navy-300: #5D87AE;
+    --surface-900: #081422;
+    --surface-800: #0E2036;
+    --surface-700: #153052;
+    --border-700: #1C3B5E;
+    --border-600: #2A5580;
+    --red-500: #F87171;
+    --text-2: #A9C0D6;
+    --text-3: #6C87A3;
+
+    /* Resident app page field */
+    --res-page-bg: #EEF3F9;
+
+    /* ------------------------------------------------------------------
+     * Semantic success — THREE tokens, split by job, not by surface.
+     *
+     * Foundation's :root declared no green, and the surfaces appeared to
+     * disagree (#16A34A / #15803D / #4ADE80). They were not drifting; the
+     * original single-success-token spec was under-specified. Each value
+     * does a different job, and each is the only one that clears its
+     * contrast threshold for that job:
+     *
+     *              on white   on #0E2036   on #153052
+     *   #16A34A      3.30:1      4.98:1       4.04:1
+     *   #15803D      5.02:1      3.27:1       2.66:1
+     *   #4ADE80      1.74:1      9.43:1       7.64:1
+     *
+     * This mirrors the treatment danger already had, where --red-500 is
+     * documented as dark-surfaces-only.
+     *
+     * LOCKED. Success is never themeable. No configuration may ever make
+     * "denied" look like "verified".
+     * ---------------------------------------------------------------- */
+
+    /* Non-text UI only: icons, dots, rails, bars, on LIGHT surfaces.
+     * 3.30:1 clears the 3:1 UI-component threshold. Never use for text. */
+    --success-600: #16A34A;
+
+    /* Success TEXT on LIGHT surfaces. 5.02:1 clears 4.5:1.
+     * This is why 9 of 10 Community Admin files tokenised it: the designer
+     * reached for it whenever the success state needed words. */
+    --success-700: #15803D;
+
+    /* Text AND icons on GUARD DARK surfaces. 9.43:1 on --surface-800.
+     * Unreadable on light (1.74:1) - dark surfaces only. */
+    --success-400: #4ADE80;
+
+    /* Success TINT: badge and pill backgrounds on light surfaces.
+     * Used inline by the wireframes as #DCFCE7 and catalogued there as
+     * "success-100"; tokenised here so no component carries the literal. */
+    --success-100: #DCFCE7;
+}
+
+/* ---------------------------------------------------------------------
+ * TEXT COLOUR — M18B (the client, 27 September), both consoles as both apps.
+ *
+ * Four text tokens, and nothing lighter than the placeholder anywhere. MEASURED (WCAG 2.x relative
+ * luminance, floored to two places), on the surfaces text actually sits on:
+ *
+ *                       hex        white   --app-bg  --page-bg  --navy-100
+ *   --text-primary      #0B1220    18.72   17.54     15.77      16.27     headings, amounts, names, labels
+ *   --text-body         #1E2A3A    14.50   13.59     12.22      12.61     body, rows, timestamps, helpers
+ *   --text-placeholder  #46586F     7.27    6.81      6.12       6.32     placeholders only
+ *   --text-on-dark      #FFFFFF    on --navy-900 16.69 · on --navy-600 5.69 · on --red-700 6.47
+ *
+ * AND THE COLOURS EVERY SCREEN ALREADY USES FOR TEXT, darkened until every one clears 4.5:1 on every one
+ * of those surfaces (1,591 of the 1,593 uses of the two slates are text colour; 825 of navy-600's 1,195;
+ * 304 of amber-700's 306). Declared after the verbatim block, so the Foundation values above stay as the
+ * wireframes give them; the phones ship the same slates and amber (packages/core/theme/tokens.json).
+ *
+ *   --slate-600    #3E5972 → #2A3F55   10.82 on white · 9.11 on page-bg   (was 7.29 · 6.14)
+ *   --slate-500    #5C7A99 → #3E5972    7.29 on white · 6.14 on page-bg   (was 4.46 · 3.76 — both under 4.5)
+ *   --navy-600     #1974D2 → #1767BA    5.69 on white · 4.79 on page-bg   (was 4.69 · 3.95)
+ *   --amber-700    #B87908 → #8F5E06    5.56 on white · 4.69 on page-bg   (was 3.63 · 3.06)
+ *   --success-700  #15803D → #137537    5.78 on white · 4.87 on page-bg   (was 5.01 · 4.22)
+ *
+ * The whole table is docs/evidence/m19/contrast.md, measured by docs/evidence/m19/contrast-measure.mjs.
+ * ------------------------------------------------------------------- */
+:root {
+    --text-primary: #0B1220;
+    --text-body: #1E2A3A;
+    --text-placeholder: #46586F;
+    --text-on-dark: #FFFFFF;
+
+    --slate-600: #2A3F55;
+    --slate-500: #3E5972;
+    --navy-600: #1767BA;
+    --amber-700: #8F5E06;
+    --success-700: #137537;
+}
+
+/* ---------------------------------------------------------------------
+ * KNOWN WIREFRAME DEFECT — success badge text
+ *
+ * The wireframes render success badge labels (.status-badge.active,
+ * .kpi-trend.up) in #16A34A at roughly 10px bold. On white that is
+ * 3.30:1, which fails the 4.5:1 threshold for text.
+ *
+ * Per client decision, the Vue port renders that TEXT in --success-700
+ * (#15803D, 5.02:1) while keeping --success-600 for the badge's icon and
+ * dot. This is a deliberate, signed-off divergence from the wireframe
+ * pixels, and the only one. It is recorded here so a later fidelity
+ * review reads it as intended rather than as drift.
+ * ------------------------------------------------------------------- */

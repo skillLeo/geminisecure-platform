@@ -1,0 +1,811 @@
+/* =====================================================================
+ * GeminiSecure — application stylesheet entry point
+ * =====================================================================
+ * Almost nothing here is authored. The approved wireframes are standalone
+ * HTML files carrying their COMPLETE stylesheet inline, and those stylesheets
+ * are lifted byte-for-byte into resources/css/wireframe/ and imported below.
+ *
+ * Re-authoring that CSS by hand is what produced the colour, type and spacing
+ * drift the client reported. It is not re-authored again. If a rule looks
+ * wrong, it is reproduced anyway and raised in DECISIONS.md — the design is
+ * signed off and this file is not the place to argue with it.
+ *
+ * The only CSS written here is what Inertia needs in order to mount, and it is
+ * listed and justified at the bottom.
+ * ===================================================================== */
+
+/* ---------------------------------------------------------------------
+ * Fonts — self-hosted, no CDN.
+ *
+ * Every board loads exactly this set from Google Fonts:
+ *   family=Poppins:wght@500;600;700
+ *   family=Inter:wght@400;500;600;700
+ *   family=IBM+Plex+Mono:wght@400;500      (Foundation only)
+ *
+ * @fontsource serves the same faces from our own origin. Proven loading in a
+ * real browser by tests/Fidelity/font-check.mjs — a missing weight falls back
+ * silently to a system face and changes every measurement on the page.
+ * ------------------------------------------------------------------- */
+@import '@fontsource/poppins/500.css';
+@import '@fontsource/poppins/600.css';
+@import '@fontsource/poppins/700.css';
+
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+
+@import '@fontsource/ibm-plex-mono/400.css';
+@import '@fontsource/ibm-plex-mono/500.css';
+
+/* ---------------------------------------------------------------------
+ * Tokens, for the few surfaces that belong to no board.
+ *
+ * Each board's own :root is scoped to that board's body class, so a page
+ * without a board — the error page, the loading shell before Vue mounts —
+ * would otherwise have no custom properties at all.
+ * ------------------------------------------------------------------- */
+@import './tokens.css';
+
+/* ---------------------------------------------------------------------
+ * The 19 console boards' stylesheets, verbatim.
+ *
+ * Generated index: tests/Fidelity/lift-stylesheets.mjs writes it, so a board
+ * added later cannot be quietly missing from the build. Each sheet is scoped
+ * to its own body class, because the boards are not one design system —
+ * Community Admin's ten sheets disagree with each other and with Super
+ * Admin's about .app-shell and .card, and both readings are the designer's,
+ * not a conflict to resolve.
+ *
+ * The other 20 of the 39 boards are the Guard App's and the Resident App's,
+ * which are React Native. They are still lifted and scoped on disk, so each
+ * can be diffed against its source, but since M11 A3 they are not in this
+ * index: no console page can wear one, and they were half of this
+ * render-blocking stylesheet.
+ * ------------------------------------------------------------------- */
+@import './wireframe-index.css';
+
+/* =====================================================================
+ * Authored CSS starts here. Everything above is lifted.
+ * ===================================================================== */
+
+/* ---------------------------------------------------------------------
+ * The frame before Vue mounts.
+ *
+ * Every board's reset and body rule is scoped to that board's class, and the
+ * class is applied by the page component — so for the one frame between HTML
+ * arriving and Inertia mounting, the document has the browser's defaults: an
+ * 8px body margin on a white page. Painting the app background and clearing
+ * the margin here makes that frame look like the application loading rather
+ * than a broken white page flashing.
+ * ------------------------------------------------------------------- */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--app-bg);
+}
+
+/* ---------------------------------------------------------------------
+ * Board chrome that must not follow the screen into the application.
+ *
+ * A board is a poster: several screens laid out on a padded grey backdrop,
+ * each inside a browser mock. The mock supplies two things the screen itself
+ * relies on and the application must now supply instead.
+ *
+ *   padding   the board pads its body to space screens apart. In the app that
+ *             padding offsets the whole console by 56px from the top.
+ *
+ *   background  the app viewport's background lives on .browser-body, the
+ *             mock's inner surface — not on .app-shell, which has none. The
+ *             board's own body background is --page-bg, the grey backdrop
+ *             BEHIND the mock, which is the wrong colour for the app.
+ *
+ * Matching specificity (0,1,1) to the scoped body rule and ordered after it,
+ * so it wins without !important.
+ * ------------------------------------------------------------------- */
+body[class*='wf-'] {
+    padding: 0;
+    background: var(--app-bg);
+}
+
+/* Inertia's mount point. The board has no equivalent — .app-shell is a direct
+ * child of .browser-body there — so this element must be transparent to
+ * layout rather than introduce a box the board never had. */
+body[class*='wf-'] > #app {
+    display: contents;
+}
+
+/* ---------------------------------------------------------------------
+ * The boards never style <a>, because they contain none.
+ *
+ * Every board draws navigation, tabs and row links as <div>. Those are real
+ * links in the application — a nav item that cannot be opened in a new tab,
+ * reached by keyboard or announced as a link is not navigation — and an <a>
+ * arrives wearing the browser's own blue underline, which no board rule
+ * overrides because no board ever needed one.
+ *
+ * The result was every sidebar item on every screen rendering underlined and
+ * blue. Removing the two UA declarations is not styling the link; it is
+ * getting back to the element the board drew.
+ * ------------------------------------------------------------------- */
+body[class*='wf-'] a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ---------------------------------------------------------------------
+ * THE ONE FOCUS TREATMENT, DEFINED ONCE (M10 §6).
+ *
+ * WHAT WAS WRONG. The boards declare no `:focus` rule anywhere — they are
+ * still pictures, and a picture has nothing focused. Nineteen components then
+ * wrote `outline: 0` to strip the browser's own ring, because a UA outline sat
+ * outside the board's rounded input and looked wrong. Only two of them put
+ * anything back, each in its own file and each different: `.feat-reason
+ * input:focus` in Features.vue and `.m-input:focus-within` in Profile.vue.
+ *
+ * So most of the platform had NO visible focus at all — a keyboard user tabbing
+ * through a form could not tell where they were — and the handful of screens
+ * that did show something showed a different thing on each. That is what "the
+ * styling breaks when an input is focused" describes.
+ *
+ * `:focus-visible`, NOT `:focus`. The browser decides: a keyboard tab shows the
+ * ring, a mouse click on a text field does not. That matters here, because the
+ * complaint was partly that clicking an input made it change, and a ring on
+ * every click is exactly that complaint in a new colour.
+ *
+ * `outline` AND NOT `border` OR `box-shadow`. An outline is drawn outside the
+ * box and takes no space, so nothing moves when it appears — a border would
+ * reflow the field, and a box-shadow is clipped by any `overflow: hidden`
+ * ancestor, of which this layout has several. `outline-offset` puts a 2px gap
+ * between field and ring so the ring is never mistaken for the field's own
+ * border, and modern browsers follow the element's border-radius for free.
+ *
+ * TWO COLOURS, BECAUSE ONE CANNOT CLEAR 3:1 EVERYWHERE. Measured against this
+ * palette:
+ *
+ *   --navy-900    on white   16.6:1    on the sidebar  1.49:1
+ *   --amber-500   on white    1.75:1   on the sidebar  6.32:1
+ *   --navy-600    on white    4.75:1   on the sidebar  2.34:1
+ *
+ * The content area is white or pale, the sidebar is a dark navy gradient, and
+ * no single value passes on both. So the ring is near-black by default and
+ * amber inside `.sidebar`, which is the only dark region either console has.
+ * Both are well clear of the 3:1 the change set asks for.
+ * ------------------------------------------------------------------- */
+body[class*='wf-'] :focus-visible {
+    outline: 2px solid var(--navy-900);
+    outline-offset: 2px;
+}
+
+/* The one dark region. Amber is the brand accent and reads on the gradient. */
+body[class*='wf-'] .sidebar :focus-visible {
+    outline-color: var(--amber-500);
+}
+
+/*
+ * A field drawn as a BOX AROUND an input — the boards' own `.m-input` and
+ * `.top-search` — wears the ring on the box rather than on the bare input
+ * inside it. The input fills its container, so a ring on the input would be
+ * drawn inside the visible field and read as a second border.
+ *
+ * `:has(:focus-visible)` rather than `:focus-within`, so it stays keyboard-only
+ * and agrees with the rule above instead of firing on every mouse click.
+ */
+body[class*='wf-'] .m-input:has(:is(input, select, textarea):focus-visible),
+body[class*='wf-'] .top-search:has(:is(input, select, textarea):focus-visible),
+body[class*='wf-'] .l-input:has(:is(input, select, textarea):focus-visible),
+body[class*='wf-'] .m-textarea:has(:is(input, select, textarea):focus-visible),
+body[class*='wf-'] .field-box:has(:is(input, select, textarea):focus-visible) {
+    outline: 2px solid var(--navy-900);
+    outline-offset: 2px;
+}
+
+/* …and the inner field then draws none, or the box shows two rings. A button inside the box (Send, show password)
+ * keeps its own ring: it is a different control, and the box lighting up would not say which one has focus. */
+body[class*='wf-'] .m-input :is(input, select, textarea):focus-visible,
+body[class*='wf-'] .top-search :is(input, select, textarea):focus-visible,
+body[class*='wf-'] .l-input :is(input, select, textarea):focus-visible,
+body[class*='wf-'] .m-textarea :is(input, select, textarea):focus-visible,
+body[class*='wf-'] .field-box :is(input, select, textarea):focus-visible {
+    outline: 0;
+}
+
+/*
+ * M12 §4.1 — THE SAME RING EVERYWHERE, CHECKED. The sweep found three boxes the rule above did not name — the
+ * sign-in pages' `.l-input`, the notice composer's `.m-textarea` and the dispatcher's message box — each of which
+ * strips its inner input's outline, so tabbing into them showed nothing at all. They are named above now, and a box
+ * drawn anywhere else only needs `class="field-box"` to wear the ring the same way. A field that is NOT in a box keeps
+ * the ring on itself; the one that stripped its own (Dispatch → Requests, the deny note) no longer does.
+ */
+
+/* ---------------------------------------------------------------------
+ * EVERY FIELD, THE SAME SMALL THINGS (M12 §4.1: "go through every input,
+ * select, date and time field, textarea, search box, modal and table control
+ * in both consoles and make them consistent").
+ *
+ * What the sweep found. Every field already sits in a box its page draws —
+ * the boards' own `.m-input` (44px, navy-100), or one of some thirty page
+ * panels (`.pay-field`, `.am-field`, `.act-field` …) that all draw the same
+ * compact white field (34px, a navy-200 edge, 9px radius, 12.5px). Their
+ * BOXES agree. What did not agree is what no page thought to set, which the
+ * browser then drew in its own way on each: the typeface of an input or a
+ * textarea (a select was already told), the grey of a placeholder, the cursor
+ * over a disabled control, the calendar and clock buttons of a date or time
+ * field, whether a textarea can be dragged wider than its column.
+ *
+ * So those, and only those, are set here — at ZERO specificity (`:where`), so
+ * every page's own rule still wins and nothing already laid out moves. Only
+ * the browser's defaults are replaced. Dialogs were already one component
+ * (ConsoleDialog; the panic overlay is the other, deliberately its own), and
+ * the sortable table headers are the boards' own.
+ * ------------------------------------------------------------------- */
+:where(body[class*='wf-']) :where(input, textarea, select, button) {
+    font-family: inherit;
+}
+
+:where(body[class*='wf-']) :where(input, textarea)::placeholder {
+    color: var(--slate-500);
+    opacity: 1;
+}
+
+:where(body[class*='wf-']) :where(input, select, textarea, button):disabled {
+    cursor: not-allowed;
+}
+
+/*
+ * EVERY TEXT BOX (M71 E2E-M5, Hassam's rule, 10 October): the width of its column, room for four lines, and taller if a
+ * note needs it, never wider. An element rule, not `:where`: the meeting form's "What it is about" was a 34 px sliver,
+ * 163 px of a 562 px column, because nothing on that page sized it. A page that sizes its own box still wins.
+ */
+textarea {
+    resize: vertical;
+    min-height: 80px;
+    width: 100%;
+}
+
+/*
+ * ...and a board field box drawn one line high (`.m-input`, 44 px) grows round the text box in it, which would
+ * otherwise spill over the field below. Inside, the text box is the field's own words, as the inputs beside it are.
+ */
+body[class*='wf-'] .m-input:has(textarea) {
+    height: auto;
+    min-height: 44px;
+    align-items: stretch;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+body[class*='wf-'] .m-input textarea {
+    display: block;
+    border: 0;
+    background: transparent;
+    padding: 0;
+}
+
+/* The date and time fields' own buttons: a hand over them, and quieter until pointed at. */
+:where(body[class*='wf-']) :where(input[type='date'], input[type='time'], input[type='datetime-local'], input[type='month'])::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    opacity: 0.65;
+}
+
+:where(body[class*='wf-']) :where(input[type='date'], input[type='time'], input[type='datetime-local'], input[type='month']):hover::-webkit-calendar-picker-indicator {
+    opacity: 1;
+}
+
+:where(body[class*='wf-']) :where(input[type='search'])::-webkit-search-cancel-button {
+    cursor: pointer;
+}
+
+/* Figures typed into a number field line up, as the tables' figures do. */
+:where(body[class*='wf-']) :where(input[type='number']) {
+    font-variant-numeric: tabular-nums;
+}
+
+/*
+ * A LINK-STYLED BUTTON WEARS NO BROWSER CHROME (the client, 6 Oct, /finance/receipts: "see the buttons").
+ *
+ * `.text-link-sm` is the boards' text link, written for an <a>. On a <button> — an action, not a navigation — the
+ * browser's grey ground, outset border and padding stayed, and about forty pages each carried the same local reset.
+ * Receipts did not, so "Receipt PDF" stood in a grey box. Set once here, at zero specificity like the rules above,
+ * so every page's own rule still wins and nothing already laid out moves.
+ */
+:where(body[class*='wf-']) :where(button.text-link-sm) {
+    border: 0;
+    background: none;
+    padding: 0;
+    font-family: inherit;
+    line-height: inherit;
+    cursor: pointer;
+}
+
+/* ---------------------------------------------------------------------
+ * Screens the designer drew taller than 900px.
+ *
+ * The shared stylesheet fixes .app-shell at height:900px, and boards that
+ * needed more — Dispatch at 1000, Platform Settings and Estate Settings at
+ * 1140, Chart of Accounts at 930 — override it with an inline style on the
+ * element. 17 of the 165 screens do this.
+ *
+ * Copying those pixel heights into the components would hardcode one
+ * designer's canvas into an application real people resize. min-height:100vh
+ * reaches the same place from the other side: at the viewport each board was
+ * drawn at, 100vh IS that board's height, so the rendering is identical where
+ * it is measured — and on a real screen the console fills it instead of
+ * stopping at an arbitrary line with page background underneath.
+ *
+ * min-height rather than height, so content taller than the viewport grows the
+ * shell rather than being clipped by .content's overflow:hidden.
+ *
+ * ---------------------------------------------------------------------
+ * AND min-height ALONE DID NOT DO THAT, WHICH COST THE LONGEST TABLES IN
+ * THE PRODUCT MOST OF THEIR ROWS.
+ *
+ * `min-height` does not override `height`. The board sheets set
+ * `.app-shell{display:flex;height:900px}`, and adding a min-height beside it
+ * left the shell at a DEFINITE height of max(900px, 100vh). `.content` is
+ * `flex:1;overflow:hidden` inside that shell, so every row past the fold was
+ * clipped — and because the clipping element was the flex child rather than the
+ * page, no scrollbar appeared anywhere. The rows were in the DOM, fully
+ * rendered, and unreachable by scrolling, by keyboard or by the browser's own
+ * find.
+ *
+ * Measured on the seeded estate: the arrears register renders 163 rows and
+ * showed about 13. The maintenance queue renders every ticket the estate has
+ * and showed ten. Neither screen has a LIMIT in its query — nothing was ever
+ * paginated away, and no amount of pagination would have fixed it, because the
+ * clip happens after the rows arrive. It reads exactly as "the table stops and
+ * there are no more records".
+ *
+ * So the height is released as well as floored. `height:auto` lets the shell
+ * grow to its content, `min-height:100vh` keeps it filling a short viewport so
+ * a nearly-empty console still covers the window, and `.content` stops hiding
+ * what it was handed.
+ *
+ * `!important`, AND NOT AS A SHORTCUT. These two properties are the only place
+ * this file deliberately overrules the vendored board CSS, which is copied
+ * byte-for-byte and must not be edited. Source order alone is not enough to
+ * rely on: written plainly, `body[class*='wf-'] .content` ties with the board's
+ * `body.wf-x .content` at (0,2,1) and wins only by coming later — and the
+ * minifier was observed rewriting it to `[class*=wf-] .content`, dropping the
+ * type selector, which silently lowers it to (0,2,0) and hands the fight back
+ * to the board. A build-tool optimisation must not be what decides whether 150
+ * rows of arrears are visible, so the intent is stated in the cascade instead of
+ * depending on the emitted bytes.
+ * ------------------------------------------------------------------- */
+body[class*='wf-'] .app-shell {
+    /* The window less the emergency bar, which sits above the shell in the page while it shows (M60 §C4). */
+    min-height: calc(100vh - var(--panic-bar-h, 0px));
+
+    /* Releases the board's fixed 900px (and the 930/1140 two boards use).
+     * Without this the min-height above is decoration: a definite height wins
+     * over a minimum every time. */
+    height: auto !important;
+}
+
+/*
+ * Never hide rows the page has already rendered.
+ *
+ * `visible` rather than `auto`: with the shell grown to its content there is
+ * nothing left to scroll INSIDE this box, and giving it its own scrollbar would
+ * trap the table in a pane while the page around it stayed still. A table too
+ * wide for the column gets a page-level horizontal scrollbar, which a reader can
+ * see and use — unlike the clip it replaces.
+ */
+body[class*='wf-'] .content {
+    overflow: visible !important;
+}
+
+/* ---------------------------------------------------------------------
+ * THE SIDEBAR HOLDS STILL WHILE THE PAGE SCROLLS.
+ *
+ * Releasing the shell's height (above) let long tables show every row, and
+ * took the sidebar with it: a plain flex column, it stretched to the height of
+ * the page. Scrolling the table scrolled the navigation away, and the account
+ * chip — the only way to sign out — sat at the very bottom of the longest
+ * page, 163 arrears rows down.
+ *
+ * Now it is pinned to the window, exactly as tall as the window:
+ *
+ *   the logo      stays at the top
+ *   the links     are a box of their own (`.side-scroll`) that takes what is
+ *                 left, and scrolls only when the pointer is over the sidebar
+ *                 and there are more links than fit — so a wheel over the page
+ *                 never moves the navigation
+ *   the account   stays at the bottom, always in reach
+ *
+ * Keyboard and touch are not left out of the hover rule: a link focused by Tab
+ * opens the box's scrolling so it can be brought into view, and a screen with
+ * no hover (a tablet) can always scroll it.
+ *
+ * `--panic-bar-h` is the height of the red emergency bar while it is showing
+ * (PanicOverlay publishes it). The bar sits in the page above the shell and
+ * pushes it down (M60 §C4), so the shell needs no room made for it; the sidebar,
+ * pinned to the window, is pinned below the bar.
+ * ------------------------------------------------------------------- */
+
+/*
+ * NOTHING IS SCROLLED TO A PLACE UNDER THE BAR (DR-053, Hassam, 10 October).
+ * The red bar stays pinned to the top of the window while it shows: a
+ * life-safety bar that scrolled away would vanish at the one moment it exists
+ * for. Wheel scrolling passes the page under it, as under any pinned header.
+ * What must not happen is the browser scrolling something TO a place where the
+ * bar hides it: a control reached by Tab or Shift+Tab, a scrollIntoView, an
+ * anchor, find in page. The window's scroll padding is the bar's own measured
+ * height, so it follows the bar when it wraps to two lines and is 0 when there
+ * is no bar, and the browser stops each of those below it.
+ */
+html {
+    scroll-padding-top: var(--panic-bar-h, 0px);
+}
+
+body[class*='wf-'] .app-shell > .sidebar {
+    position: sticky;
+    top: var(--panic-bar-h, 0px);
+    align-self: flex-start;
+    box-sizing: border-box;
+    height: calc(100vh - var(--panic-bar-h, 0px));
+    /* The visible height on a phone browser whose toolbar comes and goes, where supported. */
+    height: calc(100dvh - var(--panic-bar-h, 0px));
+    /* Above the page's own content as it scrolls past, below the emergency bar (900) and any dialog. */
+    z-index: 5;
+}
+
+body[class*='wf-'] .sidebar > .side-scroll {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    /* Reaching the end of the links does not start scrolling the page behind them. */
+    overscroll-behavior: contain;
+    /* The scrollbar's room is kept even while it is hidden, so hovering never shifts the links sideways —
+     * and it is taken out of the sidebar's own right padding, not out of the links. */
+    scrollbar-gutter: stable;
+    margin-right: -10px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.28) transparent;
+}
+
+body[class*='wf-'] .sidebar:hover > .side-scroll,
+body[class*='wf-'] .sidebar > .side-scroll:focus-within {
+    overflow-y: auto;
+}
+
+@media (hover: none) {
+    body[class*='wf-'] .sidebar > .side-scroll {
+        overflow-y: auto;
+    }
+}
+
+body[class*='wf-'] .sidebar > .side-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+body[class*='wf-'] .sidebar > .side-scroll::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.28);
+    border-radius: 3px;
+}
+
+body[class*='wf-'] .sidebar > .side-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* The logo and the account never shrink to make room for the links: the links scroll instead. */
+body[class*='wf-'] .sidebar > .side-logo,
+body[class*='wf-'] .sidebar > .side-foot {
+    flex: 0 0 auto;
+}
+
+/*
+ * A SHORT WINDOW STILL SHOWS EVERY LINK (M71 E2E-M4, Hassam, 10 October). A laptop at 125% is 720 CSS px tall: less
+ * the red bar, the logo and the account, the links had about 523 px for the 551 they need, and "Settings" sat cut off
+ * under the account. Below 760 px of window the links, their headings and the logo close up a little (about 90 px in
+ * all), so every link fits down to a window about 660 px tall; shorter than that, the links scroll as above.
+ */
+@media (max-height: 760px) {
+    body[class*='wf-'] .app-shell > .sidebar {
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+
+    body[class*='wf-'] .sidebar > .side-logo {
+        padding-bottom: 16px;
+        margin-bottom: 12px;
+    }
+
+    body[class*='wf-'] .sidebar .nav-section {
+        margin-top: 12px;
+        margin-bottom: 6px;
+    }
+
+    body[class*='wf-'] .sidebar .nav-item {
+        padding-top: 7px;
+        padding-bottom: 7px;
+    }
+}
+
+/* ---------------------------------------------------------------------
+ * A DROPDOWN'S OPEN LIST IN THE CONSOLE'S OWN TYPE (the client, 26 Sep:
+ * "why dropdown like this", "fix the fonts").
+ *
+ * The boards draw a closed <select> and never an open one, so nothing styled
+ * its list: the browser drew it in the system face (Segoe UI or Arial) at its
+ * own size, with a hard square edge and its own blue — the only part of either
+ * console not in Inter. Form controls do not inherit the page's font unless
+ * told to, so first they are told to, everywhere.
+ *
+ * Then, where the browser can (Chrome and Edge 135 onwards, `base-select`),
+ * the list itself is drawn as the rest of the console is: a white card with the
+ * navy-100 edge and the panels' radius and shadow, rows with room to aim at,
+ * the chosen one in navy. Elsewhere the native list stays, now in Inter —
+ * nothing depends on the enhancement.
+ * ------------------------------------------------------------------- */
+body[class*='wf-'] select,
+body[class*='wf-'] option,
+body[class*='wf-'] optgroup {
+    font-family: inherit;
+}
+
+body[class*='wf-'] option {
+    font-size: 13.5px;
+    color: var(--navy-900);
+}
+
+@supports (appearance: base-select) {
+    /*
+     * `.m-input select` is listed as well, and not only for its own sake: the
+     * forms that wrap a select in the boards' .m-input box take the browser's
+     * chrome off with a scoped `.m-input select { appearance: none }`, which is
+     * (0,2,1) and would otherwise leave exactly those lists native.
+     */
+    body[class*='wf-'] select,
+    body[class*='wf-'] .m-input select,
+    body[class*='wf-'] select::picker(select) {
+        appearance: base-select;
+    }
+
+    /*
+     * THE CHOSEN OPTION ON THE BOX'S MIDDLE LINE (the client, 6 Oct: "the text is not aligned center … on many many
+     * places", with "Tier or rate", "Who is billed" and "Income account"). A base-select is laid out as a row whose
+     * items start at the top, so in every box a page draws taller than its text — the panels' 34px, the boards' 44px —
+     * the chosen option and its arrow sat at the top edge. Measured in Chrome 154 on the field's own rules: 6px above
+     * the middle, and 0 with this; no other property moved it. The browser's own select already centred it, so where
+     * base-select is not supported nothing changes.
+     */
+    body[class*='wf-'] select,
+    body[class*='wf-'] .m-input select {
+        align-items: center;
+    }
+
+    /* The .m-input box is the field; the board draws no arrow inside it, so none is added. */
+    body[class*='wf-'] .m-input select::picker-icon {
+        display: none;
+    }
+
+    body[class*='wf-'] select::picker(select) {
+        margin-top: 6px;
+        padding: 6px;
+        border: 1px solid var(--navy-100);
+        border-radius: 12px;
+        background: var(--white);
+        box-shadow: 0 14px 32px rgba(11, 31, 51, 0.16);
+    }
+
+    body[class*='wf-'] select option {
+        padding: 9px 12px;
+        border-radius: 8px;
+        line-height: 1.3;
+    }
+
+    body[class*='wf-'] select option:hover,
+    body[class*='wf-'] select option:focus-visible {
+        background: var(--navy-100);
+        outline: 0;
+    }
+
+    body[class*='wf-'] select option:checked {
+        background: var(--navy-600);
+        color: var(--white);
+        font-weight: 600;
+    }
+
+    /* The row's own tick: the chosen row is already navy. */
+    body[class*='wf-'] select option::checkmark {
+        display: none;
+    }
+}
+
+/* ---------------------------------------------------------------------
+ * A FILE PICKER'S BUTTON AS ONE OF THE CONSOLE'S OWN (the client, 26 Sep:
+ * "why this choose or upload button like this").
+ *
+ * The boards draw no file field, so every one arrived as the browser's grey
+ * "Choose File" in Arial beside "No file chosen". Its button is drawn as the
+ * consoles' outline button — white, a navy-200 edge, navy text, the panels'
+ * radius — and the name beside it in the field's own type.
+ * ------------------------------------------------------------------- */
+body[class*='wf-'] input[type='file'] {
+    font-family: inherit;
+    font-size: 12.5px;
+    color: var(--slate-600);
+    cursor: pointer;
+}
+
+body[class*='wf-'] input[type='file']::file-selector-button {
+    font-family: inherit;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--navy-700);
+    background: var(--white);
+    border: 1.5px solid var(--navy-200);
+    border-radius: 10px;
+    padding: 7px 14px;
+    margin-right: 12px;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+body[class*='wf-'] input[type='file']:hover::file-selector-button {
+    border-color: var(--navy-600);
+    background: var(--navy-100);
+}
+
+body[class*='wf-'] input[type='file']:disabled::file-selector-button {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+/* ---------------------------------------------------------------------
+ * THE QUIET HIGHLIGHT, FOR A READER WHO ASKED FOR NO MOTION (M11 Part C, §6.3).
+ *
+ * A record that changed elsewhere fades from --navy-100 over 1.6 s
+ * (directives/liveFlash.js). Under `prefers-reduced-motion: reduce` nothing
+ * fades: the element takes this class, a still --navy-100 background, for 2 s.
+ * The existing token and nothing else — never amber, which on these screens
+ * means "live updates are degraded". `!important` because the fade it stands in
+ * for is an animation, which already paints over a row's own background; the
+ * still tint must too, or a striped or hovered row would show no change at all.
+ * ------------------------------------------------------------------- */
+.live-changed {
+    background-color: var(--navy-100) !important;
+}
+
+/* ---------------------------------------------------------------------
+ * RED IS URGENT (M12 §4.4: "'Urgent' is red, everywhere it appears … Red
+ * stays reserved for urgent and life-safety, nothing else." D-185).
+ *
+ * The boards spent red on every bad news: an overdue invoice, a rejected
+ * nomination, a payroll exception, a licence past its date, a High
+ * maintenance job — while an URGENT notice was amber. So a reader could not
+ * tell a late bill from a panic by colour. Here, in one place:
+ *
+ *   URGENT            an urgent notice's tag is amber (Hassam's final red
+ *                     rule, 11 Oct 2026; it was red, the panic's colour).
+ *   STILL RED         alerts, panics and duress; an uncovered post; a missed
+ *                     patrol checkpoint; a high-severity security incident —
+ *                     life-safety. And, as everywhere, an error and a control
+ *                     that destroys something: those are warnings about the
+ *                     action, not the colour of a record's standing.
+ *   AMBER NOW         every other "needs attention" standing, in one
+ *                     treatment (amber-100 behind amber-700, the boards' own
+ *                     warning pair); the word beside it says which.
+ *
+ * `html body[…]` so each rule outranks the board's own, whatever order the
+ * sheets load in.
+ * ------------------------------------------------------------------- */
+/*
+ * AN URGENT NOTICE IS AMBER (Hassam's final red rule, 11 Oct 2026, three weights: solid saturated red for an open
+ * panic or duress alert and nothing else; red outline or muted red for Failed, Rejected and a destructive button; amber
+ * for errors, warnings, refusals, urgent notices, overdue, blocked and denied). It painted every urgent tag on the site
+ * solid red-700, the panic's own colour. The boards' warning pair now, and the word Urgent says which.
+ */
+html body[class*='wf-'] .notice-tag.urgent,
+html body[class*='wf-'] .tag.urgent {
+    background: var(--amber-100);
+    color: var(--amber-700);
+}
+
+html body[class*='wf-'] .n-icon.urgent {
+    background: var(--amber-100);
+}
+
+html body[class*='wf-'] .n-icon.urgent svg {
+    color: var(--amber-700);
+}
+
+html body[class*='wf-'] .status-badge.overdue,
+html body[class*='wf-'] .status-badge.expired,
+html body[class*='wf-'] .status-badge.exceptions,
+html body[class*='wf-'] .status-badge.exception,
+html body[class*='wf-'] .age-badge.d90,
+html body[class*='wf-'] .age-kpi.d90,
+html body[class*='wf-'] .action-tag.compliance {
+    background: var(--amber-100);
+    color: var(--amber-700);
+}
+
+/*
+ * REJECTED AND FAILED ARE A RED OUTLINE (Hassam's final red rule, 11 Oct 2026, its middle weight): a nomination
+ * rejected and a dunning step that failed read as what did not go through, a step short of the panic's solid red. They
+ * sat in the amber group above; the boards drew them filled red. The booking pages draw their Rejected inline in the
+ * same three declarations (ae7d8085), so the product reads one way.
+ */
+html body[class*='wf-'] .status-badge.rejected,
+html body[class*='wf-'] .dun-status.failed {
+    background: transparent;
+    box-shadow: inset 0 0 0 1px var(--red-700);
+    color: var(--red-700);
+}
+
+html body[class*='wf-'] .age-kpi.d90 .av,
+html body[class*='wf-'] .age-kpi.d90 .al,
+html body[class*='wf-'] .exc-banner svg,
+html body[class*='wf-'] .exc-banner .eb1,
+html body[class*='wf-'] .exc-banner .eb2,
+html body[class*='wf-'] .exc-icon svg,
+html body[class*='wf-'] .exception-banner svg,
+html body[class*='wf-'] .exception-banner .eb1,
+html body[class*='wf-'] .exception-banner .eb2,
+html body[class*='wf-'] .feed-icon.deny svg,
+html body[class*='wf-'] .kpi-card.warn .kpi-icon svg {
+    color: var(--amber-700);
+}
+
+/*
+ * The tiles behind those marks follow them (RED_MAP.md, routed to Security 12 Oct): a warning card's icon tile and a
+ * refusal's feed tile were left pale red behind an amber mark. Neither is a panic or a failure.
+ */
+html body[class*='wf-'] .kpi-card.warn .kpi-icon,
+html body[class*='wf-'] .feed-icon.deny {
+    background: var(--amber-100);
+}
+
+/* Maintenance priority: High is a job to do soon, not an emergency. Medium lighter, so the two still differ. */
+html body[class*='wf-'] .priority-dot.high i {
+    background: var(--amber-700);
+}
+
+html body[class*='wf-'] .priority-dot.med i {
+    background: var(--amber-500);
+}
+
+/* A line taken out of a record is a change, not a danger. */
+html body[class*='wf-'] .line-badge.removed {
+    background: var(--navy-100);
+    color: var(--slate-600);
+}
+
+/*
+ * M18B — THE THREE PLACES THE BOARDS DRAW TEXT IN --slate-300 (1.9:1 on white): a vote count's caption, a muted
+ * timeline line and a permission pill that reads "None". Text is read, so it is never lighter than the placeholder
+ * token (7.28:1). Same specificity trick as above, so the board's own rule is overridden without editing it.
+ */
+html body[class*='wf-'] .w-votes span,
+html body[class*='wf-'] .tl2-txt.muted .tt1,
+html body[class*='wf-'] .perm-pill.none {
+    color: var(--text-placeholder);
+}
+
+/*
+ * M18B — NO TRANSPARENCY ON TEXT (M19 §1.1). The boards draw the text on the navy sidebar, heroes and banners in white
+ * faded to .35–.75 — the sidebar's section headings at .35 — and it reads grey. It is --text-on-dark here, solid;
+ * hierarchy is carried by size, weight and case, as on the phones. Each selector repeats the board's own shape, one
+ * step more specific (html body[…] before it), so the generated board stylesheet stays untouched. Icons (`svg`) are
+ * not text and keep the board's value; the active item still differs by its amber tint, amber icon and weight.
+ */
+html body[class*='wf-'] .nav-section,
+html body[class*='wf-'] .nav-item span,
+html body[class*='wf-'] .side-foot .sf-role,
+html body[class*='wf-'] .age-kpi.total .al,
+html body[class*='wf-'] .unit-summary .us-unit,
+html body[class*='wf-'] .us-age-item .ua-l,
+html body[class*='wf-'] .certify-banner .cb2,
+html body[class*='wf-'] .approval-banner .ab2,
+html body[class*='wf-'] .plan-banner .pb2,
+html body[class*='wf-'] .hero-sub,
+html body[class*='wf-'] .hero-stat .hs-l,
+html body[class*='wf-'] .shift-card-mini .sc2,
+html body[class*='wf-'] .inv-sub,
+html body[class*='wf-'] .total-strip .ts1 {
+    color: var(--text-on-dark);
+}

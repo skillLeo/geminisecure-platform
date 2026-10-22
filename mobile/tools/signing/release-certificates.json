@@ -1,0 +1,7 @@
+{
+  "about": "The GeminiSecure release certificates (M33 §2): PUBLIC fingerprints, nothing secret. Made 5 October 2026 by tools/signing/make-release-keystore.ps1; the keystore itself is never in a repository. A build or an APK signed with any other certificate is refused.",
+  "dn": "CN=GeminiSecure, O=Gemini Security Limited",
+  "guard": "cc0b00574196cd84674f1b983806938fa9c1a6ad621e945044602204db204df9",
+  "resident": "1a5702bd7c0a10ad6ae99df7cf2d05c33c9fc1b439909b0102a0af1d15d7e5a9",
+  "debug": ["fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c"]
+}

@@ -1,0 +1,265 @@
+{
+  "note": "The Resident screens rebuilt from the design (M44 §1). Each screen's commit adds it here with every file that draws it; tools/gates/resident-design-literals.mjs then holds those files to tokens only.",
+  "screens": {
+    "parts": {
+      "files": [
+        "apps/resident/src/design/parts/AppBar.tsx",
+        "apps/resident/src/design/parts/Form.tsx",
+        "apps/resident/src/design/parts/Buttons.tsx",
+        "apps/resident/src/design/parts/Card.tsx",
+        "apps/resident/src/design/parts/Timeline.tsx",
+        "apps/resident/src/design/parts/Success.tsx",
+        "apps/resident/src/design/parts/Auth.tsx",
+        "apps/resident/src/design/parts/Sheet.tsx"
+      ]
+    },
+    "resident-app-06": {
+      "files": [
+        "apps/resident/src/features/panic/screens/PanicScreen.tsx"
+      ]
+    },
+    "resident-app-07": {
+      "files": [
+        "apps/resident/src/features/visitors/screens/InviteScreen.tsx",
+        "apps/resident/src/features/visitors/components/ChooserSheet.tsx"
+      ]
+    },
+    "resident-app-08": {
+      "files": [
+        "apps/resident/src/features/visitors/screens/VisitorsScreen.tsx"
+      ]
+    },
+    "resident-app-09": {
+      "files": [
+        "apps/resident/src/features/dues/screens/DuesScreen.tsx"
+      ]
+    },
+    "resident-app-10": {
+      "files": [
+        "apps/resident/src/features/dues/screens/PayScreen.tsx"
+      ]
+    },
+    "resident-app-11": {
+      "files": [
+        "apps/resident/src/features/maintenance/screens/MaintenanceRequestScreen.tsx"
+      ]
+    },
+    "resident-app-12": {
+      "files": [
+        "apps/resident/src/features/notices/screens/NoticesScreen.tsx"
+      ]
+    },
+    "resident-app-13": {
+      "files": [
+        "apps/resident/src/features/meetings/screens/MeetingLobbyScreen.tsx"
+      ]
+    },
+    "resident-app-14": {
+      "files": [
+        "apps/resident/src/features/incidents/screens/ReportIncidentScreen.tsx"
+      ]
+    },
+    "resident-app-15": {
+      "files": [
+        "apps/resident/src/features/elections/screens/BallotAScreen.tsx",
+        "apps/resident/src/features/elections/screens/BallotScreen.tsx",
+        "apps/resident/src/features/elections/components/BallotParts.tsx",
+        "apps/resident/src/features/elections/components/BallotHolding.tsx"
+      ]
+    },
+    "resident-app-16": {
+      "files": [
+        "apps/resident/src/features/elections/screens/ReceiptScreen.tsx",
+        "apps/resident/src/features/elections/components/ReceiptCode.tsx"
+      ]
+    },
+    "resident-app-17": {
+      "files": [
+        "apps/resident/src/features/profile/screens/ProfileScreen.tsx"
+      ]
+    },
+    "resident-app-18": {
+      "files": [
+        "apps/resident/src/features/settings/screens/SettingsScreen.tsx",
+        "apps/resident/src/features/settings/components/Rows.tsx"
+      ]
+    },
+    "resident-app-19": {
+      "files": [
+        "apps/resident/src/features/settings/screens/SecurityScreen.tsx",
+        "apps/resident/src/features/settings/components/Rows.tsx"
+      ]
+    },
+    "resident-app-20": {
+      "files": [
+        "apps/resident/src/features/settings/screens/NotificationSettingsScreen.tsx",
+        "apps/resident/src/features/settings/components/Rows.tsx"
+      ]
+    },
+    "resident-app-21": {
+      "files": [
+        "apps/resident/src/features/amenities/screens/AmenitiesScreen.tsx",
+        "apps/resident/src/features/amenities/components/AmenityCard.tsx"
+      ]
+    },
+    "resident-app-24": {
+      "files": [
+        "apps/resident/src/features/elections/screens/BallotBScreen.tsx",
+        "apps/resident/src/features/elections/screens/BallotScreen.tsx",
+        "apps/resident/src/features/elections/components/BallotParts.tsx",
+        "apps/resident/src/features/elections/components/BallotHolding.tsx"
+      ]
+    },
+    "resident-app-28": {
+      "files": [
+        "apps/resident/src/features/elections/screens/ResultsScreen.tsx",
+        "apps/resident/src/features/elections/components/Turnout.tsx"
+      ]
+    },
+    "resident-app-30": {
+      "files": [
+        "apps/resident/src/features/dues/screens/ReceiptScreen.tsx"
+      ]
+    },
+    "resident-app-25": {
+      "files": [
+        "apps/resident/src/features/visitors/screens/ApprovalScreen.tsx"
+      ]
+    },
+    "resident-app-26": {
+      "files": [
+        "apps/resident/src/features/maintenance/screens/MaintenanceStatusScreen.tsx",
+        "apps/resident/src/features/maintenance/components/FixedAnswer.tsx"
+      ]
+    },
+    "resident-app-36": {
+      "files": [
+        "apps/resident/src/features/notices/screens/NoticeDetailScreen.tsx"
+      ]
+    },
+    "resident-app-35": {
+      "files": [
+        "apps/resident/src/features/dues/screens/AddCardScreen.tsx"
+      ]
+    },
+    "resident-app-40": {
+      "files": [
+        "apps/resident/src/features/dues/screens/PaymentsScreen.tsx"
+      ]
+    },
+    "resident-app-22": {
+      "files": [
+        "apps/resident/src/features/amenities/screens/BookingRequestScreen.tsx",
+        "apps/resident/src/features/amenities/components/DetailHero.tsx",
+        "apps/resident/src/features/amenities/components/SlotGrid.tsx",
+        "apps/resident/src/features/amenities/components/SummaryCard.tsx",
+        "apps/resident/src/features/visitors/components/ChooserSheet.tsx"
+      ]
+    },
+    "resident-app-27": {
+      "files": [
+        "apps/resident/src/features/incidents/screens/IncidentStatusScreen.tsx",
+        "apps/resident/src/features/maintenance/components/FixedAnswer.tsx"
+      ]
+    },
+    "resident-app-34": {
+      "files": [
+        "apps/resident/src/features/elections/screens/ReviewScreen.tsx",
+        "apps/resident/src/features/elections/components/BallotParts.tsx",
+        "apps/resident/src/features/elections/components/BallotHolding.tsx"
+      ]
+    },
+    "resident-app-33": {
+      "files": [
+        "apps/resident/src/features/settings/screens/PrivacyScreen.tsx",
+        "apps/resident/src/features/settings/components/Rows.tsx"
+      ]
+    },
+    "resident-app-39": {
+      "files": [
+        "apps/resident/src/features/settings/screens/HelpScreen.tsx",
+        "apps/resident/src/features/settings/components/Rows.tsx"
+      ]
+    },
+    "resident-app-38": {
+      "files": [
+        "apps/resident/src/features/settings/screens/LanguageScreen.tsx",
+        "apps/resident/src/features/settings/components/Rows.tsx"
+      ]
+    },
+    "resident-app-31": {
+      "files": [
+        "apps/resident/src/features/amenities/screens/BookingAnswerScreen.tsx",
+        "apps/resident/src/features/amenities/components/BookingCard.tsx",
+        "apps/resident/src/features/amenities/components/BookingQr.tsx",
+        "apps/resident/src/features/amenities/components/StatusMark.tsx"
+      ]
+    },
+    "resident-app-32": {
+      "files": [
+        "apps/resident/src/features/profile/screens/AddMemberScreen.tsx",
+        "apps/resident/src/features/profile/components/HouseholdForm.tsx",
+        "apps/resident/src/features/visitors/components/ChooserSheet.tsx"
+      ]
+    },
+    "restyle-add-vehicle": {
+      "files": [
+        "apps/resident/src/features/profile/screens/AddVehicleScreen.tsx",
+        "apps/resident/src/features/profile/components/HouseholdForm.tsx"
+      ]
+    },
+    "restyle-add-contact": {
+      "files": [
+        "apps/resident/src/features/profile/screens/AddContactScreen.tsx",
+        "apps/resident/src/features/profile/components/HouseholdForm.tsx"
+      ]
+    },
+    "restyle-add-pet": {
+      "files": [
+        "apps/resident/src/features/profile/screens/PetScreen.tsx",
+        "apps/resident/src/features/profile/components/HouseholdForm.tsx"
+      ]
+    },
+    "resident-app-29": {
+      "files": [
+        "apps/resident/src/features/auth/screens/PermissionsScreen.tsx"
+      ]
+    },
+    "restyle-pass": {
+      "files": [
+        "apps/resident/src/features/visitors/screens/PassScreen.tsx",
+        "apps/resident/src/features/visitors/components/PassQr.tsx"
+      ]
+    },
+    "restyle-saved": {
+      "files": [
+        "apps/resident/src/features/maintenance/components/SavedRow.tsx"
+      ]
+    },
+    "restyle-live-chat": {
+      "files": [
+        "apps/resident/src/features/support/screens/LiveChatScreen.tsx"
+      ]
+    },
+    "resident-app-02": {
+      "files": [
+        "apps/resident/src/features/auth/screens/SignUpScreen.tsx"
+      ]
+    },
+    "resident-app-03": {
+      "files": [
+        "apps/resident/src/features/auth/screens/LogInScreen.tsx"
+      ]
+    },
+    "resident-app-04": {
+      "files": [
+        "apps/resident/src/features/auth/screens/ForgotScreen.tsx"
+      ]
+    },
+    "resident-app-01": {
+      "files": [
+        "apps/resident/src/features/boot/screens/SplashScreen.tsx"
+      ]
+    }
+  }
+}

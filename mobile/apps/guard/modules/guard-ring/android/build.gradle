@@ -1,0 +1,60 @@
+// The Guard App's call-style ring (GUARD_RING_DESIGN §2.2). No new native artifact ships: every implementation
+// dependency below is already in the Guard APK at exactly this coordinate. The two test-only ones never ship.
+plugins {
+  id 'com.android.library'
+  id 'expo-module-gradle-plugin'
+}
+
+group = 'jm.geminisecure'
+version = '1.0.0'
+
+android {
+  namespace "jm.geminisecure.guardring"
+  defaultConfig {
+    versionCode 1
+    versionName "1.0.0"
+    consumerProguardFiles 'consumer-rules.pro'
+  }
+  testOptions {
+    unitTests.all { test ->
+      // The decision table the JUnit tests run, beside android/.
+      test.systemProperty 'guardring.spec', file('../spec').absolutePath
+      test.testLogging {
+        events "passed", "failed", "skipped"
+        exceptionFormat "full"
+        showStandardStreams true
+      }
+    }
+  }
+}
+
+// ExpoFirebaseMessagingService, the class GuardRingMessagingService extends (already in the APK). SDK 57 links
+// expo-notifications PREBUILT, from the local Maven repository beside its package, which autolinking adds to every
+// project's repositories. So there is a ':expo-notifications' project only when it is built from source. Otherwise
+// this is the coordinate autolinking itself adds for the app, at the installed package's own version.
+def expoNotifications = findProject(':expo-notifications')
+if (expoNotifications == null) {
+  def packageJson = providers.exec {
+    workingDir projectDir
+    commandLine 'node', '--print', "require.resolve('expo-notifications/package.json')"
+  }.standardOutput.asText.get().trim()
+  def version = new groovy.json.JsonSlurper().parse(new File(packageJson)).version
+  expoNotifications = "host.exp.exponent:expo.modules.notifications:${version}"
+}
+
+dependencies {
+  // `api`, not `implementation`: GuardRingMessagingService is registered in the APP's manifest, and the app's lint
+  // (Instantiatable) must walk its superclasses — ExpoFirebaseMessagingService, FirebaseMessagingService, Service — on
+  // the app's own compile classpath. Both are in the APK already; this only lets the app see them when it compiles.
+  api expoNotifications
+  // The same coordinate expo-notifications declares (its android/build.gradle).
+  api 'com.google.firebase:firebase-messaging:25.0.1'
+  implementation 'androidx.core:core:1.17.0'
+  // FragmentActivity for BiometricPrompt (ruling R10a). Both are already in the APK at these coordinates.
+  implementation 'androidx.appcompat:appcompat:1.7.0'
+  implementation 'androidx.biometric:biometric:1.2.0-alpha04'
+
+  testImplementation 'junit:junit:4.13.2'
+  // A real org.json for JVM unit tests (Android's own is a stub there).
+  testImplementation 'org.json:json:20250517'
+}

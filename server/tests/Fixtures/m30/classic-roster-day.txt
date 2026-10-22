@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="TOKEN">
+    
+    <meta name="robots" content="noindex, nofollow">
+
+    <title inertia>GeminiSecure</title>
+
+    
+        
+                            </head>
+<body>
+    <script data-page="app" type="application/json">PAGE</script><div id="app"></div></body>
+</html>
+
+
+{
+    "component": "Gemini/Operations/Roster",
+    "props": {
+        "errors": [],
+        "timeView": {
+            "view": "site",
+            "zone": null
+        },
+        "auth": {
+            "user": {
+                "id": 930041,
+                "name": "Classic Page Viewer",
+                "email": "classic-page-viewer@m30.example.com",
+                "console": "gemini",
+                "role_label": "Head of Security",
+                "is_gemini_staff": true,
+                "is_supervisor": true,
+                "receives_alerts": true,
+                "photo_version": null
+            }
+        },
+        "nav": [
+            {
+                "key": "dashboard",
+                "label": "Dashboard",
+                "section": null,
+                "href": "http://localhost:8000/dashboard",
+                "active": false
+            },
+            {
+                "key": "clients",
+                "label": "Clients",
+                "section": "Platform",
+                "href": "http://localhost:8000/clients",
+                "active": false
+            },
+            {
+                "key": "dispatch",
+                "label": "Dispatch",
+                "section": "Platform",
+                "href": "http://localhost:8000/dispatch/alerts",
+                "active": false
+            },
+            {
+                "key": "guard_workforce",
+                "label": "Guard workforce",
+                "section": "Platform",
+                "href": "http://localhost:8000/guards",
+                "active": true
+            },
+            {
+                "key": "cross_tenant_reports",
+                "label": "Cross-tenant reports",
+                "section": "Platform",
+                "href": "http://localhost:8000/reports",
+                "active": false
+            }
+        ],
+        "estateNav": [],
+        "panicWatch": null,
+        "geminiPanicWatch": {
+            "estates": [
+                {
+                    "id": "classicpages",
+                    "name": "Classic Pages Estate",
+                    "zone": "America/Jamaica"
+                }
+            ],
+            "alerts": [],
+            "poll": "/dispatch/panic-watch",
+            "checked_at": "2026-10-07T15:00:00+00:00"
+        },
+        "live": {
+            "shell": [
+                {
+                    "name": "user.930041",
+                    "streams": [
+                        "c"
+                    ]
+                },
+                {
+                    "name": "gemini.classicpages.dispatch",
+                    "streams": [
+                        "c"
+                    ]
+                },
+                {
+                    "name": "gemini.classicpages.workforce",
+                    "streams": [
+                        "c"
+                    ]
+                },
+                {
+                    "name": "gemini.classicpages.clients",
+                    "streams": [
+                        "c"
+                    ]
+                }
+            ],
+            "heads": {
+                "c": "HEAD"
+            },
+            "principal": "u-930041",
+            "build": null,
+            "channels": [],
+            "bindings": [],
+            "kind": "data"
+        },
+        "flash": {
+            "success": null,
+            "error": null,
+            "status": null,
+            "enrolment_code": null,
+            "invitation_outcome": null,
+            "invite_outcome": null,
+            "document": null
+        },
+        "screenState": null,
+        "days": [
+            "Mon 5 Oct",
+            "Tue 6 Oct",
+            "Wed 7 Oct",
+            "Thu 8 Oct",
+            "Fri 9 Oct",
+            "Sat 10 Oct",
+            "Sun 11 Oct"
+        ],
+        "week": "Oct 5 – Oct 11, 2026",
+        "weekDates": [
+            "2026-10-05",
+            "2026-10-06",
+            "2026-10-07",
+            "2026-10-08",
+            "2026-10-09",
+            "2026-10-10",
+            "2026-10-11"
+        ],
+        "previousWeek": "2026-09-28",
+        "nextWeek": "2026-10-12",
+        "thisWeek": true,
+        "groups": [
+            {
+                "id": "classicpages",
+                "name": "Classic Pages Estate",
+                "lines": [
+                    {
+                        "key": "classicpages-930002",
+                        "post": "Classic Back Gate",
+                        "patrol": false,
+                        "cells": [
+                            [],
+                            [],
+                            [
+                                {
+                                    "id": 930022,
+                                    "time": "9:00 AM – 5:00 PM JA",
+                                    "label": "C. Blake",
+                                    "tone": "day",
+                                    "title": "Classic Kemar Blake, 9:00 AM – 5:00 PM JA"
+                                }
+                            ],
+                            [],
+                            [],
+                            [],
+                            []
+                        ]
+                    },
+                    {
+                        "key": "classicpages-930001",
+                        "post": "Classic Main Gate",
+                        "patrol": false,
+                        "cells": [
+                            [],
+                            [],
+                            [
+                                {
+                                    "id": 930021,
+                                    "time": "6:00 AM – 6:00 PM JA",
+                                    "label": "C. Camp",
+                                    "tone": "day",
+                                    "title": "Classic Andre Camp, 6:00 AM – 6:00 PM JA"
+                                }
+                            ],
+                            [
+                                {
+                                    "id": 930023,
+                                    "time": "6:00 AM – 6:00 PM JA",
+                                    "label": "Open",
+                                    "tone": "open",
+                                    "title": "Open: nobody is on this shift yet. Open the day to assign somebody."
+                                }
+                            ],
+                            [],
+                            [],
+                            []
+                        ]
+                    }
+                ]
+            }
+        ],
+        "kpis": [
+            {
+                "icon": "guards",
+                "stroke": 1.7,
+                "value": "0",
+                "label": "On duty now, platform-wide",
+                "warn": false,
+                "title": "Officers clocked in to a shift right now, and not yet clocked out."
+            },
+            {
+                "icon": "clock",
+                "stroke": 1.7,
+                "value": "3",
+                "label": "Shifts this week",
+                "warn": false,
+                "title": "Every shift on the roster that starts in the week shown."
+            },
+            {
+                "icon": "alert",
+                "stroke": 1.6,
+                "value": "1",
+                "label": "Open shift this week",
+                "warn": true,
+                "title": "Shifts in the week shown with nobody on them, or with an officer who cannot stand them."
+            },
+            {
+                "icon": "check-circle",
+                "stroke": 1.6,
+                "value": "2",
+                "label": "Posts, platform-wide",
+                "warn": false,
+                "title": "Every active guard post, whether or not anything is rostered at it."
+            }
+        ],
+        "scoped": true,
+        "day": {
+            "date": "2026-10-08",
+            "previous": "2026-10-07",
+            "next": "2026-10-09",
+            "rows": [
+                {
+                    "id": 930023,
+                    "tenant_id": "classicpages",
+                    "licence_needed_to": "2026-10-08",
+                    "post": "Classic Main Gate",
+                    "duty": "post",
+                    "estate": "Classic Pages Estate",
+                    "window": "6:00 AM – 6:00 PM JA",
+                    "officer": null,
+                    "is_open": true,
+                    "released_reason": null,
+                    "status": "open",
+                    "claims": [],
+                    "locked": null,
+                    "can_remove": true
+                }
+            ],
+            "open": 1
+        },
+        "claimsWaiting": [],
+        "shiftPanels": {
+            "classicpages": {
+                "client": {
+                    "id": "classicpages",
+                    "name": "Classic Pages Estate",
+                    "internal": false
+                },
+                "zone": {
+                    "estate": "America/Jamaica",
+                    "estateTag": "JA",
+                    "shown": "America/Jamaica",
+                    "shownTag": "JA",
+                    "mine": false
+                },
+                "posts": [
+                    {
+                        "id": 930002,
+                        "name": "Classic Back Gate",
+                        "also_called": null,
+                        "type": "gate"
+                    },
+                    {
+                        "id": 930001,
+                        "name": "Classic Main Gate",
+                        "also_called": null,
+                        "type": "gate"
+                    }
+                ]
+            }
+        },
+        "dayRequested": true,
+        "canWrite": true,
+        "writeBlockedReason": "Posting a shift puts a client's gate on the rota, so it needs Guard workforce update access. You are able to read the roster."
+    },
+    "url": "/guards/roster?date=2026-10-08",
+    "version": "VERSION",
+    "sharedProps": [
+        "errors",
+        "timeView",
+        "auth",
+        "nav",
+        "estateNav",
+        "panicWatch",
+        "geminiPanicWatch",
+        "live",
+        "flash",
+        "screenState"
+    ]
+}

@@ -1,0 +1,12 @@
+{
+  "to": "ExponentPushToken[fixture]",
+  "priority": "high",
+  "ttl": 600,
+  "data": {
+    "type": "ring_stop",
+    "v": 1,
+    "id": "4812",
+    "why": "responding",
+    "who": "Marcus Grant"
+  }
+}

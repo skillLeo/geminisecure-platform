@@ -1,0 +1,20 @@
+* text=auto eol=lf
+
+# Anything that RUNS on the server. A CRLF script fails on Ubuntu with the
+# unreadable `$'\r': command not found`, and it fails at the worst moment:
+# half-way through a deploy, on a machine you are reaching through a tunnel.
+deploy/** text eol=lf
+*.sh text eol=lf
+
+# The client's site (M14): its files are kept to the byte, never normalised (ClientSiteTest checks their hashes).
+landing/** -text
+
+*.blade.php diff=html
+*.css diff=css
+*.html diff=html
+*.md diff=markdown
+*.php diff=php
+
+/.github export-ignore
+CHANGELOG.md export-ignore
+.styleci.yml export-ignore

@@ -1,0 +1,17 @@
+{
+  "to": "ExponentPushToken[fixture]",
+  "title": "STILL UNANSWERED · Medical emergency",
+  "body": "At Lot 47. 3 min since it was raised. Open it to respond.",
+  "data": {
+    "type": "site_alert",
+    "id": "4812",
+    "kind": "medical"
+  },
+  "sound": "default",
+  "channelId": "safety",
+  "priority": "high",
+  "interruptionLevel": "time-sensitive",
+  "ttl": 110,
+  "tag": "ring-4812",
+  "collapseId": "ring-4812"
+}

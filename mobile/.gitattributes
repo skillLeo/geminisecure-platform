@@ -1,0 +1,14 @@
+# Source is LF everywhere, so a Windows checkout and a CI checkout hash the same.
+* text=auto eol=lf
+
+# The design snapshot is hashed in _design/MANIFEST.md. Any end-of-line conversion
+# changes the bytes and reads as design drift, so these are never touched.
+_design/wireframes/** -text
+_design/screens/** -text
+
+*.ps1 text eol=crlf
+
+*.png binary
+*.jpg binary
+*.ttf binary
+*.otf binary

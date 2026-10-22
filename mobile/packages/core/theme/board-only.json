@@ -1,0 +1,37 @@
+{
+  "note": "Colours a mobile board draws that Foundation's :root does not define. Hand-maintained; every entry names the board that draws it. Foundation tokens live in tokens.json (generated) and are never added here.",
+  "colors": {
+    "black": {
+      "hex": "#000000",
+      "board": "guard-app 01 · .scan-screen background (the live camera field)"
+    },
+    "green-400": {
+      "hex": "#4ADE80",
+      "board": "guard-app 01 · .result-top dot and label — VALID PASS on dark"
+    },
+    "green-700": {
+      "hex": "#137537",
+      "board": "Mobile Spec Part 1 · success badge text on success-100 — drawn #15803D, which is 4.49 : 1 on res-page-bg and 4.10 on red-100; shipped as the consoles' success-700 (M18B, 28 Sep 2026): 5.27 on success-100, 4.73 on red-100"
+    },
+    "b-fdedd3": {
+      "hex": "#FDEDD3",
+      "board": "resident-app-12 · GeminiSecure Resident App Screens/03 Dues Maintenance and Notices.html"
+    },
+    "text-primary": {
+      "hex": "#0B1220",
+      "board": "M18B §3 (the client) · headings, amounts, names, field labels — anything the eye lands on first"
+    },
+    "text-body": {
+      "hex": "#1E2A3A",
+      "board": "M18B §3 (the client) · body text, notice bodies, descriptions, list rows, timestamps, helper lines"
+    },
+    "text-placeholder": {
+      "hex": "#46586F",
+      "board": "M18B §3 (the client) · placeholders ONLY — the one lighter value, so a placeholder is told from typed text"
+    },
+    "text-on-dark": {
+      "hex": "#FFFFFF",
+      "board": "M18B §3 (the client) · text on the navy header, on coloured buttons and on the Guard App's dark screens"
+    }
+  }
+}

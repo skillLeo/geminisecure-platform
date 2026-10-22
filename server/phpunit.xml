@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    ORDER IS RANDOM ON PURPOSE (M4 §4, defect 3) — see `executionOrder` below.
+
+    Three separate order dependences were found in this suite by hand — two suites claiming the
+    same scratch lot with different phases, and a simulator test asserting an absolute row count
+    that a later demonstration estate moved. Every one of them was found because somebody happened
+    to run the whole suite in the one order that showed it. Nothing stopped a fourth.
+
+    `random` shuffles RECURSIVELY: the files against each other AND the tests inside each file. So
+    a test that passes only because the test above it left something behind now fails on some seed
+    rather than on somebody's luck.
+
+    The seed is printed by `Tests\Support\RandomOrderSeed` (registered below) whenever anything
+    fails, together with the exact command that reproduces that order. That class's docblock has
+    the command written out; an XML comment may not contain a double hyphen, so it cannot be
+    repeated here.
+
+    `resolveDependencies` is set explicitly rather than left to the default, because it is the one
+    thing that must NOT be shuffled: a test with `@depends` still runs after what it depends on.
+-->
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+         executionOrder="random"
+         resolveDependencies="true"
+>
+    <extensions>
+        <!-- Prints the seed on failure, so a random-order failure can be reproduced. -->
+        <bootstrap class="Tests\Support\RandomOrderSeed"/>
+    </extensions>
+
+    <testsuites>
+        <testsuite name="Unit">
+            <directory>tests/Unit</directory>
+        </testsuite>
+        <testsuite name="Feature">
+            <directory>tests/Feature</directory>
+        </testsuite>
+    </testsuites>
+    <source>
+        <include>
+            <directory>app</directory>
+        </include>
+    </source>
+    <php>
+        <env name="APP_ENV" value="testing"/>
+        <env name="APP_MAINTENANCE_DRIVER" value="file"/>
+        <env name="BCRYPT_ROUNDS" value="4"/>
+        <env name="BROADCAST_CONNECTION" value="null"/>
+        <env name="CACHE_STORE" value="array"/>
+        <!--
+            Tests run against MySQL, not SQLite.
+
+            The schema uses MySQL triggers for the append-only ledger, and the
+            isolation model rests on real GRANT behaviour. A SQLite suite would
+            be green while exercising something this application never runs.
+        -->
+        <env name="DB_CONNECTION" value="mysql"/>
+        <env name="DB_DATABASE" value="gs_platform_test"/>
+        <env name="DB_PORT" value="3307"/>
+        <env name="DB_URL" value=""/>
+
+        <!--
+            The suite connects as gs_owner because RefreshDatabase builds and
+            drops the schema on every run, which gs_app cannot and must not do.
+
+            This does NOT weaken the isolation guarantee. The restriction on
+            gs_app is exactly what `php artisan gate:isolation` proves, against
+            the real databases and real grants, which is the only place it can
+            be proved honestly.
+        -->
+        <env name="DB_USERNAME" value="gs_owner"/>
+        <env name="DB_PASSWORD" value="change_me_owner"/>
+        <!--
+            THE SUITE IS A DEMONSTRATION SERVER (M16 §1.2). It exercises the seeded
+            estates, the reviewer accounts and the test-card checkout, so the master
+            demonstration switch and the review window are ON here — the same posture a
+            demo server ships with. Production runs both OFF; `DemoModeTest` overrides
+            these to false in-test and proves the whole demonstration surface is refused.
+        -->
+        <env name="DEMO_MODE" value="true"/>
+        <env name="REVIEW_MODE" value="true"/>
+        <env name="MAIL_MAILER" value="array"/>
+        <!-- M12 §5.1: the SMTP retries still happen, without the 1 s and 3 s waits between them. -->
+        <env name="MAIL_RETRY_BACKOFF" value="false"/>
+        <!-- M18G §4.2: no DNS in the test run, and its addresses are example.com and .test — the domain check is off. -->
+        <env name="MAIL_CHECK_DOMAINS" value="false"/>
+        <env name="QUEUE_CONNECTION" value="sync"/>
+        <env name="SESSION_DRIVER" value="array"/>
+        <!--
+            The event simulator is registered only while this is set, so the
+            suite runs with it on to reach the routes at all. `SimulatorTest`
+            turns it off for one test and proves the routes are then absent.
+        -->
+        <env name="GS_SIMULATOR_ENABLED" value="true"/>
+        <env name="PULSE_ENABLED" value="false"/>
+        <env name="TELESCOPE_ENABLED" value="false"/>
+        <env name="NIGHTWATCH_ENABLED" value="false"/>
+    </php>
+</phpunit>

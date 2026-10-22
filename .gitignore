@@ -1,0 +1,21 @@
+# Dependencies and builds
+node_modules/
+vendor/
+dist/
+build/
+.expo/
+
+# Local settings and secrets
+.env
+.env.*
+!.env.example
+*.jks
+*.keystore
+signing.properties
+google-services.json
+
+# Editors and systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

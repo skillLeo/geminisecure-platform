@@ -1,0 +1,219 @@
+{
+  "app": "resident",
+  "package": "jm.geminisecure.resident",
+  "merged": [
+    {
+      "permission": "android.permission.ACCESS_COARSE_LOCATION",
+      "from": [
+        "app config + plugins",
+        "expo-location"
+      ]
+    },
+    {
+      "permission": "android.permission.ACCESS_FINE_LOCATION",
+      "from": [
+        "app config + plugins",
+        "expo-location"
+      ]
+    },
+    {
+      "permission": "android.permission.ACCESS_NETWORK_STATE",
+      "from": [
+        "@react-native-community/netinfo",
+        "expo-image"
+      ]
+    },
+    {
+      "permission": "android.permission.CAMERA",
+      "from": [
+        "app config + plugins",
+        "expo-camera",
+        "expo-image-picker"
+      ]
+    },
+    {
+      "permission": "android.permission.DETECT_SCREEN_CAPTURE",
+      "from": [
+        "expo-screen-capture"
+      ]
+    },
+    {
+      "permission": "android.permission.FOREGROUND_SERVICE",
+      "from": [
+        "app config + plugins"
+      ]
+    },
+    {
+      "permission": "android.permission.FOREGROUND_SERVICE_MICROPHONE",
+      "from": [
+        "app config + plugins"
+      ]
+    },
+    {
+      "permission": "android.permission.INTERNET",
+      "from": [
+        "app config + plugins",
+        "expo-file-system",
+        "expo-image"
+      ]
+    },
+    {
+      "permission": "android.permission.MODIFY_AUDIO_SETTINGS",
+      "from": [
+        "app config + plugins",
+        "expo-audio"
+      ]
+    },
+    {
+      "permission": "android.permission.POST_NOTIFICATIONS",
+      "from": [
+        "app config + plugins",
+        "expo-notifications"
+      ]
+    },
+    {
+      "permission": "android.permission.RECEIVE_BOOT_COMPLETED",
+      "from": [
+        "expo-notifications"
+      ]
+    },
+    {
+      "permission": "android.permission.RECORD_AUDIO",
+      "from": [
+        "app config + plugins"
+      ]
+    },
+    {
+      "permission": "android.permission.USE_BIOMETRIC",
+      "from": [
+        "app config + plugins",
+        "expo-local-authentication"
+      ]
+    },
+    {
+      "permission": "android.permission.USE_FINGERPRINT",
+      "from": [
+        "app config + plugins",
+        "expo-local-authentication"
+      ]
+    },
+    {
+      "permission": "android.permission.VIBRATE",
+      "from": [
+        "app config + plugins",
+        "expo-haptics"
+      ]
+    }
+  ],
+  "removed": [
+    {
+      "permission": "android.permission.ACCESS_WIFI_STATE",
+      "from": [
+        "@react-native-community/netinfo"
+      ]
+    },
+    {
+      "permission": "android.permission.READ_EXTERNAL_STORAGE",
+      "from": [
+        "expo-file-system",
+        "expo-image",
+        "expo-image-picker",
+        "expo-screen-capture"
+      ]
+    },
+    {
+      "permission": "android.permission.READ_MEDIA_IMAGES",
+      "from": [
+        "expo-screen-capture"
+      ]
+    },
+    {
+      "permission": "android.permission.WRITE_EXTERNAL_STORAGE",
+      "from": [
+        "expo-file-system",
+        "expo-image-picker"
+      ]
+    }
+  ],
+  "blockedButNeverDeclared": [
+    "android.permission.ACCESS_BACKGROUND_LOCATION",
+    "android.permission.ACCESS_MEDIA_LOCATION",
+    "android.permission.FOREGROUND_SERVICE_LOCATION",
+    "android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK",
+    "android.permission.READ_CONTACTS",
+    "android.permission.READ_MEDIA_AUDIO",
+    "android.permission.READ_MEDIA_VIDEO",
+    "android.permission.READ_MEDIA_VISUAL_USER_SELECTED",
+    "android.permission.READ_PHONE_STATE",
+    "android.permission.SYSTEM_ALERT_WINDOW",
+    "android.permission.WRITE_CONTACTS",
+    "android.permission.WRITE_SETTINGS"
+  ],
+  "foregroundServices": [
+    {
+      "library": "app config + plugins",
+      "type": "microphone"
+    }
+  ],
+  "removedForegroundServices": [
+    {
+      "library": "expo-location",
+      "type": "location"
+    }
+  ],
+  "services": [
+    {
+      "name": "com.google.android.gms.metadata.ModuleDependencies",
+      "from": "expo-image-picker",
+      "exported": "false",
+      "type": null
+    },
+    {
+      "name": "expo.modules.audio.service.AudioRecordingService",
+      "from": "app config + plugins",
+      "exported": "false",
+      "type": "microphone"
+    },
+    {
+      "name": "expo.modules.notifications.service.ExpoFirebaseMessagingService",
+      "from": "expo-notifications",
+      "exported": "false",
+      "type": null
+    },
+    {
+      "name": "expo.modules.taskManager.TaskJobService",
+      "from": "expo-task-manager",
+      "exported": "false",
+      "type": null
+    }
+  ],
+  "removedServices": [
+    {
+      "name": "expo.modules.location.services.LocationTaskService",
+      "from": "expo-location",
+      "exported": "false",
+      "type": "location"
+    }
+  ],
+  "ios": {
+    "usageDescriptions": {
+      "NSMicrophoneUsageDescription": "GeminiSecure uses the microphone when you tap it to speak a maintenance request or a report — your words are turned into text on your phone and are not recorded — and, while you have an emergency alert open with \"Share live audio\" on, to send what it hears to your estate's security control room.",
+      "NSSpeechRecognitionUsageDescription": "GeminiSecure turns what you say into text on your phone when you choose to speak a maintenance request or a report. It is recognised on the phone itself and never sent to a speech service.",
+      "NSCameraUsageDescription": "GeminiSecure uses the camera when you choose to add a photo to a maintenance request or a report.",
+      "NSPhotoLibraryUsageDescription": "GeminiSecure attaches the photos you choose to a maintenance request or a report. It cannot see any other photo.",
+      "NSLocationWhenInUseUsageDescription": "GeminiSecure uses your location when you send an alert or report an incident, and adds it to the alert or the report automatically, so the security officers on duty in your community can find you. It is never collected in the background.",
+      "NSFaceIDUsageDescription": "GeminiSecure uses Face ID to unlock the app if you turn the app lock on. The check is done by your iPhone; your face never leaves it.",
+      "NSLocalNetworkUsageDescription": "GeminiSecure uses the local network only to connect a test build to a development machine on the same Wi-Fi. The released app does not use it."
+    },
+    "usesNonExemptEncryption": false,
+    "backgroundModes": [
+      "fetch",
+      "audio",
+      "processing"
+    ],
+    "entitlements": {
+      "com.apple.developer.usernotifications.time-sensitive": true,
+      "aps-environment": "development"
+    }
+  }
+}

@@ -1,0 +1,234 @@
+{
+  "note": "Taken from the real app by tools/store/screenshots.mjs, signed in to the DEMONSTRATION ESTATE with the credentials in STORE_REVIEW_NOTES.md — the same estate, the same accounts and the same figures a reviewer finds (M6 §3.2). Run `php artisan demo:seed` and then this, before every submission.",
+  "source": "the demonstration estate (php artisan demo:seed), signed in through each app's own front door",
+  "method": "Browser capture. react-native-web at each store's device size and pixel density, driven with Playwright through the app's own controls: signed in with the review email address and the static six-digit code, then each screen reached the way the app reaches it. No handset was reachable for this run, so these are browser captures rather than device captures (M6 §3.2, §4) — retake on hardware the moment one answers.",
+  "taken_at": "2026-09-20T22:37:02.880Z",
+  "date": "2026-09-21",
+  "data": "Every name, figure and time in these pictures is a row on the demonstration estate, served by the API the shipped app talks to. Nothing is mocked and nothing is drawn.",
+  "nothing_switched_off": "Amenity bookings ship OFF for the pilot (flags.amenityBookings) and are in no picture; nor is the alert screen (M5 §7); nor a listening microphone (board 11).",
+  "nothing_sent": "One of the six screens is a form and was typed into before the picture — the visitor invitation. It was not submitted: no pass was issued on the demonstration estate.",
+  "devices": {
+    "ios-6.7": {
+      "store": "App Store",
+      "pixels": "1290x2796",
+      "logical": "430x932@3x",
+      "label": "iPhone 6.7\" — 1290 x 2796"
+    },
+    "ios-6.5": {
+      "store": "App Store",
+      "pixels": "1242x2688",
+      "logical": "414x896@3x",
+      "label": "iPhone 6.5\" — 1242 x 2688"
+    },
+    "android-phone": {
+      "store": "Google Play",
+      "pixels": "1080x1920",
+      "logical": "360x640@3x",
+      "label": "Android phone — 1080 x 1920 (9:16)"
+    }
+  },
+  "screens": {
+    "resident": [
+      {
+        "order": 1,
+        "screen": "resident-app-05",
+        "slug": "home",
+        "route": "/(tabs)",
+        "caption": "Your community at a glance.",
+        "shows": "The household's home screen on the demonstration estate: what is owed, the visitor expected at the gate today, the estate's latest notice and the open committee election. The amber strip is the app saying, on every screen, that this is a demonstration community.",
+        "why": "The first picture answers \"what is this\": the household's balance, its gate, its notices and its vote in one place.",
+        "reachable_by_reviewer": "It is where the app opens once signed in.",
+        "method": "browser capture, driven through the app's own controls on the demonstration estate",
+        "date": "2026-09-21"
+      },
+      {
+        "order": 2,
+        "screen": "resident-app-07",
+        "slug": "invite-a-visitor",
+        "route": "/visitors/invite",
+        "caption": "Invite a visitor and send them a pass for the gate.",
+        "shows": "A visitor being invited: who, why and the window they are expected in. Typed into and NOT sent — no pass was issued on the demonstration estate.",
+        "why": "The second answers \"what is it for\": letting somebody through the gate without being telephoned about it.",
+        "reachable_by_reviewer": "Home → Invite visitor.",
+        "method": "browser capture, driven through the app's own controls on the demonstration estate",
+        "date": "2026-09-21"
+      },
+      {
+        "order": 3,
+        "screen": "resident-app-08",
+        "slug": "visitor-tracking",
+        "route": "/(tabs)/visitors",
+        "caption": "See who has arrived, who is expected and who was turned away.",
+        "shows": "The household's visitors on the demonstration estate — who is expected today, and under History the passes already used at the gate or cancelled.",
+        "why": "The third answers \"does it work\": who came, who is expected, and who was turned away.",
+        "reachable_by_reviewer": "Tab bar → Visitors.",
+        "method": "browser capture, driven through the app's own controls on the demonstration estate",
+        "date": "2026-09-21"
+      },
+      {
+        "order": 4,
+        "screen": "resident-app-12",
+        "slug": "notices",
+        "route": "/(tabs)/notices",
+        "caption": "Notices from the community, in one place.",
+        "shows": "The demonstration estate's notices, urgent first, with what has been read and what has not.",
+        "why": "Notices are what a community office sends and what a resident misses; they are the daily reason to open the app.",
+        "reachable_by_reviewer": "Tab bar → Notices.",
+        "method": "browser capture, driven through the app's own controls on the demonstration estate",
+        "date": "2026-09-21"
+      },
+      {
+        "order": 5,
+        "screen": "resident-app-09",
+        "slug": "dues",
+        "route": "/(tabs)/dues",
+        "caption": "Maintenance dues, clearly itemised.",
+        "shows": "The household's dues on the demonstration estate, read back out of the estate's double-entry ledger: what is outstanding, what was settled last month, and the statement behind both.",
+        "why": "Dues are the other daily reason, and the figures are read back out of the estate's own ledger.",
+        "reachable_by_reviewer": "Tab bar → Dues.",
+        "method": "browser capture, driven through the app's own controls on the demonstration estate",
+        "date": "2026-09-21"
+      },
+      {
+        "order": 6,
+        "screen": "resident-app-26",
+        "slug": "track-a-request",
+        "route": "/requests",
+        "caption": "Report a problem and follow it until it is done.",
+        "shows": "A maintenance request on the demonstration estate followed from reported to in progress, with its number, its category and where it has got to.",
+        "why": "A problem reported and followed to done — the part of estate management residents judge an office by.",
+        "reachable_by_reviewer": "Home → Maintenance → the request.",
+        "method": "browser capture, driven through the app's own controls on the demonstration estate",
+        "date": "2026-09-21"
+      }
+    ]
+  },
+  "files": [
+    {
+      "app": "resident",
+      "device": "ios-6.7",
+      "screen": "resident-app-05",
+      "pixels": "1290x2796",
+      "file": "store/screenshots/resident/ios-6.7/01-home.png"
+    },
+    {
+      "app": "resident",
+      "device": "ios-6.7",
+      "screen": "resident-app-07",
+      "pixels": "1290x2796",
+      "file": "store/screenshots/resident/ios-6.7/02-invite-a-visitor.png"
+    },
+    {
+      "app": "resident",
+      "device": "ios-6.7",
+      "screen": "resident-app-08",
+      "pixels": "1290x2796",
+      "file": "store/screenshots/resident/ios-6.7/03-visitor-tracking.png"
+    },
+    {
+      "app": "resident",
+      "device": "ios-6.7",
+      "screen": "resident-app-12",
+      "pixels": "1290x2796",
+      "file": "store/screenshots/resident/ios-6.7/04-notices.png"
+    },
+    {
+      "app": "resident",
+      "device": "ios-6.7",
+      "screen": "resident-app-09",
+      "pixels": "1290x2796",
+      "file": "store/screenshots/resident/ios-6.7/05-dues.png"
+    },
+    {
+      "app": "resident",
+      "device": "ios-6.7",
+      "screen": "resident-app-26",
+      "pixels": "1290x2796",
+      "file": "store/screenshots/resident/ios-6.7/06-track-a-request.png"
+    },
+    {
+      "app": "resident",
+      "device": "ios-6.5",
+      "screen": "resident-app-05",
+      "pixels": "1242x2688",
+      "file": "store/screenshots/resident/ios-6.5/01-home.png"
+    },
+    {
+      "app": "resident",
+      "device": "ios-6.5",
+      "screen": "resident-app-07",
+      "pixels": "1242x2688",
+      "file": "store/screenshots/resident/ios-6.5/02-invite-a-visitor.png"
+    },
+    {
+      "app": "resident",
+      "device": "ios-6.5",
+      "screen": "resident-app-08",
+      "pixels": "1242x2688",
+      "file": "store/screenshots/resident/ios-6.5/03-visitor-tracking.png"
+    },
+    {
+      "app": "resident",
+      "device": "ios-6.5",
+      "screen": "resident-app-12",
+      "pixels": "1242x2688",
+      "file": "store/screenshots/resident/ios-6.5/04-notices.png"
+    },
+    {
+      "app": "resident",
+      "device": "ios-6.5",
+      "screen": "resident-app-09",
+      "pixels": "1242x2688",
+      "file": "store/screenshots/resident/ios-6.5/05-dues.png"
+    },
+    {
+      "app": "resident",
+      "device": "ios-6.5",
+      "screen": "resident-app-26",
+      "pixels": "1242x2688",
+      "file": "store/screenshots/resident/ios-6.5/06-track-a-request.png"
+    },
+    {
+      "app": "resident",
+      "device": "android-phone",
+      "screen": "resident-app-05",
+      "pixels": "1080x1920",
+      "file": "store/screenshots/resident/android-phone/01-home.png"
+    },
+    {
+      "app": "resident",
+      "device": "android-phone",
+      "screen": "resident-app-07",
+      "pixels": "1080x1920",
+      "file": "store/screenshots/resident/android-phone/02-invite-a-visitor.png"
+    },
+    {
+      "app": "resident",
+      "device": "android-phone",
+      "screen": "resident-app-08",
+      "pixels": "1080x1920",
+      "file": "store/screenshots/resident/android-phone/03-visitor-tracking.png"
+    },
+    {
+      "app": "resident",
+      "device": "android-phone",
+      "screen": "resident-app-12",
+      "pixels": "1080x1920",
+      "file": "store/screenshots/resident/android-phone/04-notices.png"
+    },
+    {
+      "app": "resident",
+      "device": "android-phone",
+      "screen": "resident-app-09",
+      "pixels": "1080x1920",
+      "file": "store/screenshots/resident/android-phone/05-dues.png"
+    },
+    {
+      "app": "resident",
+      "device": "android-phone",
+      "screen": "resident-app-26",
+      "pixels": "1080x1920",
+      "file": "store/screenshots/resident/android-phone/06-track-a-request.png"
+    }
+  ]
+}

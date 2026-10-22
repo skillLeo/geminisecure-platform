@@ -1,0 +1,15 @@
+{
+  "to": "ExponentPushToken[fixture]",
+  "title": "Ringing stopped · Medical emergency",
+  "body": "At Lot 47: Marcus Grant is responding. Follow dispatch's instructions.",
+  "data": {
+    "type": "ring_stop",
+    "id": "4812"
+  },
+  "sound": "default",
+  "channelId": "general",
+  "priority": "default",
+  "ttl": 600,
+  "tag": "ring-4812",
+  "collapseId": "ring-4812"
+}

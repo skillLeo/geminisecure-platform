@@ -1,0 +1,30 @@
+{
+    "why":  "WCAG 2.1 AA is a product requirement and outranks the board's swatch where body text fails 4.5 : 1. Each entry names the Foundation value it replaces; if the Foundation value ever changes, the extractor stops so the override is looked at again. The design system should be corrected to these values. M12 §2.1 and §3.4 (26 Sep 2026): the client still found the secondary text pale at 5 : 1 — every helper line, timestamp and placeholder is now a solid dark colour well past AA, set here once for both apps.",
+    "colors":  {
+                   "text-3":  {
+                                  "from":  "#6C87A3",
+                                  "to":  "#9DB3CA",
+                                  "fails":  "4.41 : 1 on surface-800, 3.57 : 1 on surface-700 (guard row details, timestamps, idle tab labels, day badges). M12 §3.4: lightened again so the guard's night-time helper text and placeholders read clearly on every dark surface."
+                              },
+                   "slate-500":  {
+                                     "from":  "#5C7A99",
+                                     "to":  "#3E5972",
+                                     "fails":  "4.47 : 1 on white, 3.88 : 1 on navy-100 (resident details, timestamps, idle tab labels). M12 §2.1: the client found #506C88 pale; it is now the former label colour, about 7.3 : 1 on white."
+                                 },
+                   "slate-600":  {
+                                     "from":  "#3E5972",
+                                     "to":  "#2A3F55",
+                                     "fails":  "passes AA (7.3 : 1 on white) — darkened for M12 §2.1 so labels and paragraphs stay a step darker than details, at about 11 : 1."
+                                 },
+                   "amber-700":  {
+                                     "from":  "#B87908",
+                                     "to":  "#8F5E06",
+                                     "fails":  "3.64 : 1 on white (resident warnings)"
+                                 },
+                   "navy-600":  {
+                                    "from":  "#1974D2",
+                                    "to":  "#1767BA",
+                                    "fails":  "4.08 : 1 as a link on navy-100, 4.27 : 1 under an amber eyebrow and 4.24 : 1 under the hero subtitle (resident) - the sky blue the client could not read text on, 23 September 2026. Darkened 6 per cent to #186DC5, which still measured 4.38 : 1 on page-bg and 4.26 : 1 on red-100 (M19 contrast table, 28 Sep 2026); now #1767BA, the consoles' own value (resources/css/tokens.css, M18B): 4.79 on page-bg, 4.66 on red-100, 5.69 for white on the primary button."
+                                }
+               }
+}

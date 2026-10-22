@@ -1,0 +1,25 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+
+parameters:
+    level: 6
+
+    paths:
+        - app
+        - database
+        - routes
+
+    # NOTHING IS EXCLUDED, AND ONE FILE USED TO BE.
+    #
+    # `HandleInertiaRequests` was skipped here as package-generated scaffolding.
+    # It stopped being that a long time ago: it now shares BOTH consoles'
+    # navigation and the screen-state override with every page in the
+    # application. So the one file exempt from static analysis was the file
+    # every screen depends on — and it is where D-069 took the whole Estate
+    # Console down, because a shared prop threw out of middleware.
+    #
+    # Larastan would not have caught that particular fault. The point is
+    # narrower and worth keeping: an exclusion written for generated code
+    # outlives the code being generated, and nobody re-reads the reason. There
+    # is no baseline in this project and now no excluded path either.
+

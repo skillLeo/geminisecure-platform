@@ -1,0 +1,6 @@
+<!--
+  Empty on purpose. Every entry the ring needs (the messaging service, the ring screen, the receiver) is written into
+  the APP manifest by plugin/withGuardRing.cjs, where `expo config introspect` and gate:store can see it. A library
+  manifest is merged into the APK without either of them ever reading it.
+-->
+<manifest />

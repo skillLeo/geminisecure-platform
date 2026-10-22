@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /apps
+Disallow: /support
+Disallow: /sign-in
+Disallow: /login

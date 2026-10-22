@@ -1,0 +1,21 @@
+{
+  "to": "ExponentPushToken[fixture]",
+  "priority": "high",
+  "ttl": 110,
+  "data": {
+    "type": "site_ring",
+    "v": 1,
+    "id": "4812",
+    "kind": "medical",
+    "r": 1,
+    "of": 5,
+    "esc": 1,
+    "drill": 0,
+    "estate": "Phoenix Park",
+    "where": "Lot 47",
+    "age": 61,
+    "at": "2:11 AM",
+    "hold": 45,
+    "rt": "<ticket>"
+  }
+}

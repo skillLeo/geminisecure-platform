@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="TOKEN">
+    
+    <meta name="robots" content="noindex, nofollow">
+
+    <title inertia>GeminiSecure</title>
+
+    
+        
+                            </head>
+<body>
+    <script data-page="app" type="application/json">PAGE</script><div id="app"></div></body>
+</html>
+
+
+{
+    "component": "Gemini/Operations/Sites",
+    "props": {
+        "errors": [],
+        "timeView": {
+            "view": "site",
+            "zone": null
+        },
+        "auth": {
+            "user": {
+                "id": 930041,
+                "name": "Classic Page Viewer",
+                "email": "classic-page-viewer@m30.example.com",
+                "console": "gemini",
+                "role_label": "Head of Security",
+                "is_gemini_staff": true,
+                "is_supervisor": true,
+                "receives_alerts": true,
+                "photo_version": null
+            }
+        },
+        "nav": [
+            {
+                "key": "dashboard",
+                "label": "Dashboard",
+                "section": null,
+                "href": "http://localhost:8000/dashboard",
+                "active": false
+            },
+            {
+                "key": "clients",
+                "label": "Clients",
+                "section": "Platform",
+                "href": "http://localhost:8000/clients",
+                "active": false
+            },
+            {
+                "key": "dispatch",
+                "label": "Dispatch",
+                "section": "Platform",
+                "href": "http://localhost:8000/dispatch/alerts",
+                "active": false
+            },
+            {
+                "key": "guard_workforce",
+                "label": "Guard workforce",
+                "section": "Platform",
+                "href": "http://localhost:8000/guards",
+                "active": true
+            },
+            {
+                "key": "cross_tenant_reports",
+                "label": "Cross-tenant reports",
+                "section": "Platform",
+                "href": "http://localhost:8000/reports",
+                "active": false
+            }
+        ],
+        "estateNav": [],
+        "panicWatch": null,
+        "geminiPanicWatch": null,
+        "live": {
+            "shell": [
+                {
+                    "name": "user.930041",
+                    "streams": [
+                        "c"
+                    ]
+                },
+                {
+                    "name": "gemini.classicpages.dispatch",
+                    "streams": [
+                        "c"
+                    ]
+                },
+                {
+                    "name": "gemini.classicpages.workforce",
+                    "streams": [
+                        "c"
+                    ]
+                },
+                {
+                    "name": "gemini.classicpages.clients",
+                    "streams": [
+                        "c"
+                    ]
+                }
+            ],
+            "heads": {
+                "c": "HEAD"
+            },
+            "principal": "u-930041",
+            "build": null,
+            "channels": [],
+            "bindings": [],
+            "kind": "data"
+        },
+        "flash": {
+            "success": null,
+            "error": null,
+            "status": null,
+            "enrolment_code": null,
+            "invitation_outcome": null,
+            "invite_outcome": null,
+            "document": null
+        },
+        "screenState": null,
+        "estates": [
+            {
+                "id": "classicpages",
+                "name": "Classic Pages Estate"
+            }
+        ],
+        "estate": "classicpages",
+        "posts": [
+            {
+                "id": 930002,
+                "name": "Classic Back Gate",
+                "also_called": null,
+                "label": "Classic Back Gate",
+                "type": "gate",
+                "lat": null,
+                "lng": null,
+                "radius_m": 50
+            },
+            {
+                "id": 930001,
+                "name": "Classic Main Gate",
+                "also_called": null,
+                "label": "Classic Main Gate",
+                "type": "gate",
+                "lat": 17.9612,
+                "lng": -76.8821,
+                "radius_m": 80
+            }
+        ],
+        "checkpoints": [
+            {
+                "id": 930031,
+                "label": "Classic Pool Deck",
+                "phase": null,
+                "sequence": 1,
+                "post_id": null,
+                "lat": null,
+                "lng": null,
+                "radius_m": 25
+            }
+        ],
+        "estateSeesGuards": null,
+        "site": {
+            "lat": null,
+            "lng": null,
+            "radius_m": null,
+            "supervisor_phone": null,
+            "boundary": null
+        },
+        "phases": [],
+        "patrolInterval": {
+            "minutes": 15,
+            "set": false,
+            "default": 15,
+            "grace": 10,
+            "min": 5,
+            "max": 240
+        },
+        "canPlace": true,
+        "radius": {
+            "min": 10,
+            "max": 2000
+        },
+        "checkpointRadius": {
+            "min": 10,
+            "max": 200,
+            "default": 25
+        },
+        "postTypes": [
+            {
+                "value": "gate",
+                "label": "Gate"
+            },
+            {
+                "value": "relief",
+                "label": "Relief"
+            }
+        ],
+        "fenceRule": {
+            "good_accuracy_m": 50,
+            "poor_accuracy_m": 200,
+            "max_margin_m": 50,
+            "margin_per_accuracy": 2
+        }
+    },
+    "url": "/guards/sites?estate=classicpages",
+    "version": "VERSION",
+    "sharedProps": [
+        "errors",
+        "timeView",
+        "auth",
+        "nav",
+        "estateNav",
+        "panicWatch",
+        "geminiPanicWatch",
+        "live",
+        "flash",
+        "screenState"
+    ]
+}

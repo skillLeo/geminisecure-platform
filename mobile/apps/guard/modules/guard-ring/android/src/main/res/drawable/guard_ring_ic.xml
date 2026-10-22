@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The ring's status-bar icon: a plain shield with a bar, drawn here (no asset, no licence). Status-bar icons are
+     drawn from their alpha only, so it is one solid shape. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+  <path
+      android:fillColor="#FFFFFFFF"
+      android:fillType="evenOdd"
+      android:pathData="M12,2 L20,5 L20,11 C20,16.2 16.6,20.6 12,22 C7.4,20.6 4,16.2 4,11 L4,5 Z M11,7 L11,13 L13,13 L13,7 Z M11,15 L11,17 L13,17 L13,15 Z" />
+</vector>

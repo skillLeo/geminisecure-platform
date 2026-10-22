@@ -1,0 +1,14 @@
+{
+  "to": "ExponentPushToken[fixture]",
+  "priority": "high",
+  "ttl": 60,
+  "data": {
+    "type": "ring_test",
+    "v": 1,
+    "id": "test-9f2c41d07a3b88e1",
+    "drill": 1,
+    "estate": "Phoenix Park",
+    "hold": 15,
+    "rt": "<ticket>"
+  }
+}

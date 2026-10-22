@@ -1,0 +1,21 @@
+{
+    "note": "Signed by the Laravel server with the real phoenixpark key. Regenerate: npm run api:vector",
+    "site_id": "phoenixpark",
+    "keys": [
+        {
+            "version": 1,
+            "public_key": "LDVMbwHGCBnyUek4eeDYiVgPV4R_wxsuC1uF4eKU_Rs"
+        }
+    ],
+    "token": "eyJwYXNzX2lkIjoiMTExMTExMTEtMjIyMi00MzMzLTg0NDQtNTU1NTU1NTU1NTU1IiwidGVuYW50X2lkIjoicGhvZW5peHBhcmsiLCJzaXRlX2lkIjoicGhvZW5peHBhcmsiLCJ2YWxpZF9mcm9tIjoiMjAyNi0wOS0wNFQxNDowMDowMC0wNTowMCIsInZhbGlkX3RvIjoiMjAyNi0wOS0wNFQxNjowMDowMC0wNTowMCIsInNpbmdsZV91c2UiOnRydWUsIm5vbmNlIjoibW9iaWxlLXZlY3Rvci0xIiwia2V5X3ZlcnNpb24iOjF9.xPl6nAlop0WmZ-jgo4mtwhAuLFS9VbQofEsyrdHhVyg7CkrQoYNW_381lFEgZN9pcfoi54cUglydCLQT3yduAQ",
+    "payload": {
+        "pass_id": "11111111-2222-4333-8444-555555555555",
+        "tenant_id": "phoenixpark",
+        "site_id": "phoenixpark",
+        "valid_from": "2026-09-04T14:00:00-05:00",
+        "valid_to": "2026-09-04T16:00:00-05:00",
+        "single_use": true,
+        "nonce": "mobile-vector-1",
+        "key_version": 1
+    }
+}

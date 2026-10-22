@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- The ring screen: the Guard App's own dark (#081422, app.config.ts backgroundColor), no title bar. An AppCompat
+       parent, so the fingerprint dialog androidx.biometric shows on older Android (ruling R10a) has the theme it needs. -->
+  <style name="GuardRingTheme" parent="@style/Theme.AppCompat.NoActionBar">
+    <item name="android:windowBackground">@color/guard_ring_background</item>
+    <item name="android:colorBackground">@color/guard_ring_background</item>
+    <item name="android:statusBarColor">@android:color/transparent</item>
+    <item name="android:navigationBarColor">@android:color/transparent</item>
+    <item name="android:windowShowWallpaper">false</item>
+  </style>
+</resources>

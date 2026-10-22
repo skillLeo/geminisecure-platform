@@ -1,0 +1,625 @@
+{
+  "note": "Each .css here is a byte-exact copy of its board's <style> contents. Never hand-edit. Regenerate with: node tests/Fidelity/lift-stylesheets.mjs",
+  "generated_by": "node tests/Fidelity/lift-stylesheets.mjs",
+  "count": 39,
+  "distinct_sheets": 31,
+  "sheets": [
+    {
+      "sheet": "super-admin-01-login-dashboard-and-activity",
+      "body_class": "wf-super-admin-01-login-dashboard-and-activity",
+      "boards": [
+        "super-admin-01-login-dashboard-and-activity",
+        "super-admin-02-clients",
+        "super-admin-03-dispatch",
+        "super-admin-04-guard-workforce",
+        "super-admin-05-payroll-and-accounting",
+        "super-admin-06-billing-and-subscriptions",
+        "super-admin-07-cross-tenant-reports",
+        "super-admin-08-access-and-audit-log",
+        "super-admin-09-platform-settings"
+      ]
+    },
+    {
+      "sheet": "community-admin-01-login-dashboard-structure-and-residents",
+      "body_class": "wf-community-admin-01-login-dashboard-structure-and-residents",
+      "boards": [
+        "community-admin-01-login-dashboard-structure-and-residents"
+      ]
+    },
+    {
+      "sheet": "community-admin-02-arrears-ledger-payment-plan-and-dunning",
+      "body_class": "wf-community-admin-02-arrears-ledger-payment-plan-and-dunning",
+      "boards": [
+        "community-admin-02-arrears-ledger-payment-plan-and-dunning"
+      ]
+    },
+    {
+      "sheet": "community-admin-03-elections-nominations-results-and-meetings",
+      "body_class": "wf-community-admin-03-elections-nominations-results-and-meetings",
+      "boards": [
+        "community-admin-03-elections-nominations-results-and-meetings"
+      ]
+    },
+    {
+      "sheet": "community-admin-04-payroll-runs-exceptions-and-filings",
+      "body_class": "wf-community-admin-04-payroll-runs-exceptions-and-filings",
+      "boards": [
+        "community-admin-04-payroll-runs-exceptions-and-filings"
+      ]
+    },
+    {
+      "sheet": "community-admin-05-maintenance-amenity-bookings-and-settings",
+      "body_class": "wf-community-admin-05-maintenance-amenity-bookings-and-settings",
+      "boards": [
+        "community-admin-05-maintenance-amenity-bookings-and-settings"
+      ]
+    },
+    {
+      "sheet": "community-admin-06-settings-estate-profile-users-and-roles",
+      "body_class": "wf-community-admin-06-settings-estate-profile-users-and-roles",
+      "boards": [
+        "community-admin-06-settings-estate-profile-users-and-roles"
+      ]
+    },
+    {
+      "sheet": "community-admin-07-chart-of-accounts-vendors-bills-and-bank-rec",
+      "body_class": "wf-community-admin-07-chart-of-accounts-vendors-bills-and-bank-rec",
+      "boards": [
+        "community-admin-07-chart-of-accounts-vendors-bills-and-bank-rec"
+      ]
+    },
+    {
+      "sheet": "community-admin-08-reports-unit-claims-and-notices",
+      "body_class": "wf-community-admin-08-reports-unit-claims-and-notices",
+      "boards": [
+        "community-admin-08-reports-unit-claims-and-notices"
+      ]
+    },
+    {
+      "sheet": "community-admin-09-data-privacy-add-resident-and-meetings",
+      "body_class": "wf-community-admin-09-data-privacy-add-resident-and-meetings",
+      "boards": [
+        "community-admin-09-data-privacy-add-resident-and-meetings"
+      ]
+    },
+    {
+      "sheet": "community-admin-10-payroll-employees-details-and-billing",
+      "body_class": "wf-community-admin-10-payroll-employees-details-and-billing",
+      "boards": [
+        "community-admin-10-payroll-employees-details-and-billing"
+      ]
+    },
+    {
+      "sheet": "guard-app-01-splash-clock-in-and-qr-scan",
+      "body_class": "wf-guard-app-01-splash-clock-in-and-qr-scan",
+      "boards": [
+        "guard-app-01-splash-clock-in-and-qr-scan"
+      ]
+    },
+    {
+      "sheet": "guard-app-02-search-call-through-and-patrol",
+      "body_class": "wf-guard-app-02-search-call-through-and-patrol",
+      "boards": [
+        "guard-app-02-search-call-through-and-patrol"
+      ]
+    },
+    {
+      "sheet": "guard-app-03-equipment-leave-and-payslip",
+      "body_class": "wf-guard-app-03-equipment-leave-and-payslip",
+      "boards": [
+        "guard-app-03-equipment-leave-and-payslip"
+      ]
+    },
+    {
+      "sheet": "guard-app-04-duress-alertness-and-orders",
+      "body_class": "wf-guard-app-04-duress-alertness-and-orders",
+      "boards": [
+        "guard-app-04-duress-alertness-and-orders"
+      ]
+    },
+    {
+      "sheet": "guard-app-05-enrolment-inbox-and-clock-out",
+      "body_class": "wf-guard-app-05-enrolment-inbox-and-clock-out",
+      "boards": [
+        "guard-app-05-enrolment-inbox-and-clock-out"
+      ]
+    },
+    {
+      "sheet": "guard-app-06-open-shifts-and-gate-activity",
+      "body_class": "wf-guard-app-06-open-shifts-and-gate-activity",
+      "boards": [
+        "guard-app-06-open-shifts-and-gate-activity"
+      ]
+    },
+    {
+      "sheet": "guard-app-07-more-menu-and-override-admit",
+      "body_class": "wf-guard-app-07-more-menu-and-override-admit",
+      "boards": [
+        "guard-app-07-more-menu-and-override-admit"
+      ]
+    },
+    {
+      "sheet": "guard-app-08-onboarding-and-walk-up-entry",
+      "body_class": "wf-guard-app-08-onboarding-and-walk-up-entry",
+      "boards": [
+        "guard-app-08-onboarding-and-walk-up-entry"
+      ]
+    },
+    {
+      "sheet": "guard-app-09-offline-state-and-sync-queue",
+      "body_class": "wf-guard-app-09-offline-state-and-sync-queue",
+      "boards": [
+        "guard-app-09-offline-state-and-sync-queue"
+      ]
+    },
+    {
+      "sheet": "guard-app-10-denials-flags-and-empty-states",
+      "body_class": "wf-guard-app-10-denials-flags-and-empty-states",
+      "boards": [
+        "guard-app-10-denials-flags-and-empty-states"
+      ]
+    },
+    {
+      "sheet": "resident-app-01-onboarding-and-auth",
+      "body_class": "wf-resident-app-01-onboarding-and-auth",
+      "boards": [
+        "resident-app-01-onboarding-and-auth"
+      ]
+    },
+    {
+      "sheet": "resident-app-02-home-panic-and-visitors",
+      "body_class": "wf-resident-app-02-home-panic-and-visitors",
+      "boards": [
+        "resident-app-02-home-panic-and-visitors"
+      ]
+    },
+    {
+      "sheet": "resident-app-03-dues-maintenance-and-notices",
+      "body_class": "wf-resident-app-03-dues-maintenance-and-notices",
+      "boards": [
+        "resident-app-03-dues-maintenance-and-notices"
+      ]
+    },
+    {
+      "sheet": "resident-app-04-meetings-incident-and-voting",
+      "body_class": "wf-resident-app-04-meetings-incident-and-voting",
+      "boards": [
+        "resident-app-04-meetings-incident-and-voting"
+      ]
+    },
+    {
+      "sheet": "resident-app-05-profile-and-settings",
+      "body_class": "wf-resident-app-05-profile-and-settings",
+      "boards": [
+        "resident-app-05-profile-and-settings"
+      ]
+    },
+    {
+      "sheet": "resident-app-06-amenities-live-meeting-and-ballot",
+      "body_class": "wf-resident-app-06-amenities-live-meeting-and-ballot",
+      "boards": [
+        "resident-app-06-amenities-live-meeting-and-ballot"
+      ]
+    },
+    {
+      "sheet": "resident-app-07-approvals-status-and-results",
+      "body_class": "wf-resident-app-07-approvals-status-and-results",
+      "boards": [
+        "resident-app-07-approvals-status-and-results"
+      ]
+    },
+    {
+      "sheet": "resident-app-08-permissions-and-household",
+      "body_class": "wf-resident-app-08-permissions-and-household",
+      "boards": [
+        "resident-app-08-permissions-and-household"
+      ]
+    },
+    {
+      "sheet": "resident-app-09-privacy-vote-review-and-notice",
+      "body_class": "wf-resident-app-09-privacy-vote-review-and-notice",
+      "boards": [
+        "resident-app-09-privacy-vote-review-and-notice"
+      ]
+    },
+    {
+      "sheet": "resident-app-10-bookings-support-and-autopay",
+      "body_class": "wf-resident-app-10-bookings-support-and-autopay",
+      "boards": [
+        "resident-app-10-bookings-support-and-autopay"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "slug": "super-admin-01-login-dashboard-and-activity",
+      "body_class": "wf-super-admin-01-login-dashboard-and-activity",
+      "source": "GeminiSecure Super Admin Screens/01 Login Dashboard and Activity.html",
+      "source_sha256": "b65f98bd5d6ca667d7de7cdf06222931ab43da3294d7602d52d9a0233318d954",
+      "css_sha256": "571e101d86c29e7193f126f98af8a54076101b5a76b34c8365f67ac35138d8ec",
+      "style_blocks": 1,
+      "css_bytes": 61450,
+      "sheet": "super-admin-01-login-dashboard-and-activity"
+    },
+    {
+      "slug": "super-admin-02-clients",
+      "body_class": "wf-super-admin-01-login-dashboard-and-activity",
+      "source": "GeminiSecure Super Admin Screens/02 Clients.html",
+      "source_sha256": "4ef830f5d8b424f6bf0b3a09a3f7735bc636528af8dbd25d6594a3e4aab83adf",
+      "css_sha256": "571e101d86c29e7193f126f98af8a54076101b5a76b34c8365f67ac35138d8ec",
+      "style_blocks": 1,
+      "css_bytes": 61450,
+      "sheet": "super-admin-01-login-dashboard-and-activity"
+    },
+    {
+      "slug": "super-admin-03-dispatch",
+      "body_class": "wf-super-admin-01-login-dashboard-and-activity",
+      "source": "GeminiSecure Super Admin Screens/03 Dispatch.html",
+      "source_sha256": "83407ff11331828cf5ed2c6e9ee0cd247542378bd787446884e32fa7a3b6faaa",
+      "css_sha256": "571e101d86c29e7193f126f98af8a54076101b5a76b34c8365f67ac35138d8ec",
+      "style_blocks": 1,
+      "css_bytes": 61450,
+      "sheet": "super-admin-01-login-dashboard-and-activity"
+    },
+    {
+      "slug": "super-admin-04-guard-workforce",
+      "body_class": "wf-super-admin-01-login-dashboard-and-activity",
+      "source": "GeminiSecure Super Admin Screens/04 Guard Workforce.html",
+      "source_sha256": "5f73a3fc7bcdee88e6489a425229d0148bd7687dac093a13c13ad0c8030f8962",
+      "css_sha256": "571e101d86c29e7193f126f98af8a54076101b5a76b34c8365f67ac35138d8ec",
+      "style_blocks": 1,
+      "css_bytes": 61450,
+      "sheet": "super-admin-01-login-dashboard-and-activity"
+    },
+    {
+      "slug": "super-admin-05-payroll-and-accounting",
+      "body_class": "wf-super-admin-01-login-dashboard-and-activity",
+      "source": "GeminiSecure Super Admin Screens/05 Payroll and Accounting.html",
+      "source_sha256": "4c124aa7bec484898b46552cea62a1afffd6ca2408d6457dabde0f7d8bcfeadc",
+      "css_sha256": "571e101d86c29e7193f126f98af8a54076101b5a76b34c8365f67ac35138d8ec",
+      "style_blocks": 1,
+      "css_bytes": 61450,
+      "sheet": "super-admin-01-login-dashboard-and-activity"
+    },
+    {
+      "slug": "super-admin-06-billing-and-subscriptions",
+      "body_class": "wf-super-admin-01-login-dashboard-and-activity",
+      "source": "GeminiSecure Super Admin Screens/06 Billing and Subscriptions.html",
+      "source_sha256": "cd7a05a1be2ae0c1cc8f9168220170fa243e20d424c1bea2c804c519af40f453",
+      "css_sha256": "571e101d86c29e7193f126f98af8a54076101b5a76b34c8365f67ac35138d8ec",
+      "style_blocks": 1,
+      "css_bytes": 61450,
+      "sheet": "super-admin-01-login-dashboard-and-activity"
+    },
+    {
+      "slug": "super-admin-07-cross-tenant-reports",
+      "body_class": "wf-super-admin-01-login-dashboard-and-activity",
+      "source": "GeminiSecure Super Admin Screens/07 Cross-Tenant Reports.html",
+      "source_sha256": "be855d29da8609babd9015c37a1923eeeca5c26ebdc4c85fba5cb3338a13de04",
+      "css_sha256": "571e101d86c29e7193f126f98af8a54076101b5a76b34c8365f67ac35138d8ec",
+      "style_blocks": 1,
+      "css_bytes": 61450,
+      "sheet": "super-admin-01-login-dashboard-and-activity"
+    },
+    {
+      "slug": "super-admin-08-access-and-audit-log",
+      "body_class": "wf-super-admin-01-login-dashboard-and-activity",
+      "source": "GeminiSecure Super Admin Screens/08 Access and Audit Log.html",
+      "source_sha256": "d26999bfc622062ac0c915fd3fcc5570fe9342b904242f6cf06dd919cfd4b58d",
+      "css_sha256": "571e101d86c29e7193f126f98af8a54076101b5a76b34c8365f67ac35138d8ec",
+      "style_blocks": 1,
+      "css_bytes": 61450,
+      "sheet": "super-admin-01-login-dashboard-and-activity"
+    },
+    {
+      "slug": "super-admin-09-platform-settings",
+      "body_class": "wf-super-admin-01-login-dashboard-and-activity",
+      "source": "GeminiSecure Super Admin Screens/09 Platform Settings.html",
+      "source_sha256": "ae1b86e0bd2d32c5e8978d4839a2d81564f4176621f3dfc51a611b5d144e7e9b",
+      "css_sha256": "571e101d86c29e7193f126f98af8a54076101b5a76b34c8365f67ac35138d8ec",
+      "style_blocks": 1,
+      "css_bytes": 61450,
+      "sheet": "super-admin-01-login-dashboard-and-activity"
+    },
+    {
+      "slug": "community-admin-01-login-dashboard-structure-and-residents",
+      "body_class": "wf-community-admin-01-login-dashboard-structure-and-residents",
+      "source": "GeminiSecure Community Admin Screens/01 Login Dashboard Structure and Residents.html",
+      "source_sha256": "fb10d2abfdc07d35563b5b2d30e393268fdf38433dca2fbfaadad4bd708d0555",
+      "css_sha256": "1b7fbae0633c2b831e565df171ec70e502322236cea102be8cbcf98f10422846",
+      "style_blocks": 1,
+      "css_bytes": 14727,
+      "sheet": "community-admin-01-login-dashboard-structure-and-residents"
+    },
+    {
+      "slug": "community-admin-02-arrears-ledger-payment-plan-and-dunning",
+      "body_class": "wf-community-admin-02-arrears-ledger-payment-plan-and-dunning",
+      "source": "GeminiSecure Community Admin Screens/02 Arrears Ledger Payment Plan and Dunning.html",
+      "source_sha256": "c3b70692a6a0d985d112a0de120a6cb77c165b9aeb46bbca7794b37b30fa9099",
+      "css_sha256": "e3144ab2e46c28f6c4720c9e266710718138a9218373edbbddb6ed888923faa4",
+      "style_blocks": 1,
+      "css_bytes": 15336,
+      "sheet": "community-admin-02-arrears-ledger-payment-plan-and-dunning"
+    },
+    {
+      "slug": "community-admin-03-elections-nominations-results-and-meetings",
+      "body_class": "wf-community-admin-03-elections-nominations-results-and-meetings",
+      "source": "GeminiSecure Community Admin Screens/03 Elections Nominations Results and Meetings.html",
+      "source_sha256": "f76c3088cc109b565b115555607a3e9ca3a5fcdba711d3a103b9b3236de6adeb",
+      "css_sha256": "824f826596ea60a7eb751394abd95e715c34e4c82cc4962e0cfeef950428352b",
+      "style_blocks": 1,
+      "css_bytes": 14330,
+      "sheet": "community-admin-03-elections-nominations-results-and-meetings"
+    },
+    {
+      "slug": "community-admin-04-payroll-runs-exceptions-and-filings",
+      "body_class": "wf-community-admin-04-payroll-runs-exceptions-and-filings",
+      "source": "GeminiSecure Community Admin Screens/04 Payroll Runs Exceptions and Filings.html",
+      "source_sha256": "2f1bf4305178f33a850b4e8ac2e5bd5cc3f64c73ecde92f7815f33f70ec2a7c0",
+      "css_sha256": "e7d64fd92f3a85033697fcab28438055caa2ced3d5c297b1822d55a47e58d28d",
+      "style_blocks": 1,
+      "css_bytes": 11301,
+      "sheet": "community-admin-04-payroll-runs-exceptions-and-filings"
+    },
+    {
+      "slug": "community-admin-05-maintenance-amenity-bookings-and-settings",
+      "body_class": "wf-community-admin-05-maintenance-amenity-bookings-and-settings",
+      "source": "GeminiSecure Community Admin Screens/05 Maintenance Amenity Bookings and Settings.html",
+      "source_sha256": "9b494dc0e6918ef023af069fafdeeba5a14ca2f6c3c9a96d9a6571dbfecfd606",
+      "css_sha256": "484b1a22965073ce510b692d72151b5567b6e9a96f46de794b91d80875b406ea",
+      "style_blocks": 1,
+      "css_bytes": 12485,
+      "sheet": "community-admin-05-maintenance-amenity-bookings-and-settings"
+    },
+    {
+      "slug": "community-admin-06-settings-estate-profile-users-and-roles",
+      "body_class": "wf-community-admin-06-settings-estate-profile-users-and-roles",
+      "source": "GeminiSecure Community Admin Screens/06 Settings Estate Profile Users and Roles.html",
+      "source_sha256": "3bf88e8261296e028cc0858b549d2525ebaf8f1db898e0246e70e4424d26fbe3",
+      "css_sha256": "2663aca7350da54f2c3100be6fc5de38e7faaf38703f024ec869bc9745267e06",
+      "style_blocks": 1,
+      "css_bytes": 13604,
+      "sheet": "community-admin-06-settings-estate-profile-users-and-roles"
+    },
+    {
+      "slug": "community-admin-07-chart-of-accounts-vendors-bills-and-bank-rec",
+      "body_class": "wf-community-admin-07-chart-of-accounts-vendors-bills-and-bank-rec",
+      "source": "GeminiSecure Community Admin Screens/07 Chart of Accounts Vendors Bills and Bank Rec.html",
+      "source_sha256": "1e163a5164644c198bd7d4f7f155c08dce31f08565fbd9bdf05cb60465fde299",
+      "css_sha256": "db3157bd87b3c6c1a1c9de4319b85d1f7225deb669f09b0461a0b0531c3f3f38",
+      "style_blocks": 1,
+      "css_bytes": 10327,
+      "sheet": "community-admin-07-chart-of-accounts-vendors-bills-and-bank-rec"
+    },
+    {
+      "slug": "community-admin-08-reports-unit-claims-and-notices",
+      "body_class": "wf-community-admin-08-reports-unit-claims-and-notices",
+      "source": "GeminiSecure Community Admin Screens/08 Reports Unit Claims and Notices.html",
+      "source_sha256": "6ab22910b9984f3a451c7ccf1afa92b40908171c4642556e8d7e0738ecd2494e",
+      "css_sha256": "d2cdb39b026d0d1245140e223591c1b76f7f21e73e5f6f3bbdc9b1e6302f145e",
+      "style_blocks": 1,
+      "css_bytes": 14378,
+      "sheet": "community-admin-08-reports-unit-claims-and-notices"
+    },
+    {
+      "slug": "community-admin-09-data-privacy-add-resident-and-meetings",
+      "body_class": "wf-community-admin-09-data-privacy-add-resident-and-meetings",
+      "source": "GeminiSecure Community Admin Screens/09 Data Privacy Add Resident and Meetings.html",
+      "source_sha256": "aa738a34cef2a59e2fcf7e8364ac3ac67aa9bfc79164ffe442ef00aa088237fb",
+      "css_sha256": "6959dc5efae0d0fcc62e8376fb9fa3db3ed13f9508b3d20be9df680dd30f7322",
+      "style_blocks": 1,
+      "css_bytes": 10759,
+      "sheet": "community-admin-09-data-privacy-add-resident-and-meetings"
+    },
+    {
+      "slug": "community-admin-10-payroll-employees-details-and-billing",
+      "body_class": "wf-community-admin-10-payroll-employees-details-and-billing",
+      "source": "GeminiSecure Community Admin Screens/10 Payroll Employees Details and Billing.html",
+      "source_sha256": "3f285fcd68a0f44b4125552f117b13ca43338c5b8e212a6baa3157f9e7d3ad5c",
+      "css_sha256": "441c6ce63c82d77d6ce260abf321ee82780d81e05d542b4ea56a1914b0d44307",
+      "style_blocks": 1,
+      "css_bytes": 11347,
+      "sheet": "community-admin-10-payroll-employees-details-and-billing"
+    },
+    {
+      "slug": "guard-app-01-splash-clock-in-and-qr-scan",
+      "body_class": "wf-guard-app-01-splash-clock-in-and-qr-scan",
+      "source": "GeminiSecure Guard App Screens/01 Splash Clock-In and QR Scan.html",
+      "source_sha256": "7d2d5b42b9a2f51c84ea377ea4203f223ea82bbc54102af7101ac6b4dd379e20",
+      "css_sha256": "c40f4a09f658ff44bb401a9222ce5e88ffa153d72e947e8b5e479152e009fe9e",
+      "style_blocks": 1,
+      "css_bytes": 16576,
+      "sheet": "guard-app-01-splash-clock-in-and-qr-scan"
+    },
+    {
+      "slug": "guard-app-02-search-call-through-and-patrol",
+      "body_class": "wf-guard-app-02-search-call-through-and-patrol",
+      "source": "GeminiSecure Guard App Screens/02 Search Call-Through and Patrol.html",
+      "source_sha256": "1542480f806bb5979d053f54a08c9d21df300239a1c17470437de3b31f17ecc3",
+      "css_sha256": "654c5b4cdb6c507eb16cca62ee39e8ef5d748e816811611217398e91db9ab628",
+      "style_blocks": 1,
+      "css_bytes": 13632,
+      "sheet": "guard-app-02-search-call-through-and-patrol"
+    },
+    {
+      "slug": "guard-app-03-equipment-leave-and-payslip",
+      "body_class": "wf-guard-app-03-equipment-leave-and-payslip",
+      "source": "GeminiSecure Guard App Screens/03 Equipment Leave and Payslip.html",
+      "source_sha256": "c3f8674560e7e2ef89e4cd6d0ad16423a8a35f3357ef6b60d9cbacda12aa338c",
+      "css_sha256": "b3fcb2f7f2c6b358a9b9995562c9c6d9d39b702bc39ffa8da74706e47f4fbeb5",
+      "style_blocks": 1,
+      "css_bytes": 11644,
+      "sheet": "guard-app-03-equipment-leave-and-payslip"
+    },
+    {
+      "slug": "guard-app-04-duress-alertness-and-orders",
+      "body_class": "wf-guard-app-04-duress-alertness-and-orders",
+      "source": "GeminiSecure Guard App Screens/04 Duress Alertness and Orders.html",
+      "source_sha256": "3f5eea2b4f4eccb97f4ed6d7734fac53f3704bd44ead215acecbe870d22cb81e",
+      "css_sha256": "a7c9a6aa9e178f9c87083c46e22cafc6b84a834e941d839246ae22985ca8880b",
+      "style_blocks": 1,
+      "css_bytes": 13550,
+      "sheet": "guard-app-04-duress-alertness-and-orders"
+    },
+    {
+      "slug": "guard-app-05-enrolment-inbox-and-clock-out",
+      "body_class": "wf-guard-app-05-enrolment-inbox-and-clock-out",
+      "source": "GeminiSecure Guard App Screens/05 Enrolment Inbox and Clock-Out.html",
+      "source_sha256": "c858e6039dbf9639429cf92a76a1a93d7db05fdaefcc7beb33a344ecc7a956c3",
+      "css_sha256": "00c41170224b9d2c086b7875c1edb599bc081fff365be4c2b7eed0a7b9b83a99",
+      "style_blocks": 1,
+      "css_bytes": 11458,
+      "sheet": "guard-app-05-enrolment-inbox-and-clock-out"
+    },
+    {
+      "slug": "guard-app-06-open-shifts-and-gate-activity",
+      "body_class": "wf-guard-app-06-open-shifts-and-gate-activity",
+      "source": "GeminiSecure Guard App Screens/06 Open Shifts and Gate Activity.html",
+      "source_sha256": "1f301a578a8b0887b3eaa53325c983396ab7febb34f2bf3310c943e275171886",
+      "css_sha256": "4ec2f5daf85e58b7bff227145c7392ed0d5cd92a2d18dcab5a1720d0f12a48d5",
+      "style_blocks": 1,
+      "css_bytes": 10332,
+      "sheet": "guard-app-06-open-shifts-and-gate-activity"
+    },
+    {
+      "slug": "guard-app-07-more-menu-and-override-admit",
+      "body_class": "wf-guard-app-07-more-menu-and-override-admit",
+      "source": "GeminiSecure Guard App Screens/07 More Menu and Override Admit.html",
+      "source_sha256": "684df29c50edb44526c7b95cb72d7f9c215e3fefc3f4c0e9e039d277a3f81891",
+      "css_sha256": "df3b7035ddd1c41ef7e5938ad9b41dddf172069948ed055938c1d6d8d1d856ed",
+      "style_blocks": 1,
+      "css_bytes": 11248,
+      "sheet": "guard-app-07-more-menu-and-override-admit"
+    },
+    {
+      "slug": "guard-app-08-onboarding-and-walk-up-entry",
+      "body_class": "wf-guard-app-08-onboarding-and-walk-up-entry",
+      "source": "GeminiSecure Guard App Screens/08 Onboarding and Walk-up Entry.html",
+      "source_sha256": "eddc7caf1c6501789bd0ccfe8caa3ba6bfbde9dfbb28970b7af7c22ddaf46b45",
+      "css_sha256": "b6fd2f1f9ad3ca42a63e6eabed4931ca65102df406bff1cb1faea30545bf964b",
+      "style_blocks": 1,
+      "css_bytes": 10779,
+      "sheet": "guard-app-08-onboarding-and-walk-up-entry"
+    },
+    {
+      "slug": "guard-app-09-offline-state-and-sync-queue",
+      "body_class": "wf-guard-app-09-offline-state-and-sync-queue",
+      "source": "GeminiSecure Guard App Screens/09 Offline State and Sync Queue.html",
+      "source_sha256": "16d959d59c3c12b39c03398224d82592140f66c666b3bd8fb42d09ef955f04c6",
+      "css_sha256": "d03adfb7494b47916c2ba60d24ff08e3f4ae35395a5979682980f4ef25990bd5",
+      "style_blocks": 1,
+      "css_bytes": 11558,
+      "sheet": "guard-app-09-offline-state-and-sync-queue"
+    },
+    {
+      "slug": "guard-app-10-denials-flags-and-empty-states",
+      "body_class": "wf-guard-app-10-denials-flags-and-empty-states",
+      "source": "GeminiSecure Guard App Screens/10 Denials Flags and Empty States.html",
+      "source_sha256": "f55d55b22af503f35afde2b5622b28cc4074c918a3032449e1d596d276909d9a",
+      "css_sha256": "126b543422293500108279f3b39f389471785fc098ca3cd656219fd8cd820c5f",
+      "style_blocks": 1,
+      "css_bytes": 10971,
+      "sheet": "guard-app-10-denials-flags-and-empty-states"
+    },
+    {
+      "slug": "resident-app-01-onboarding-and-auth",
+      "body_class": "wf-resident-app-01-onboarding-and-auth",
+      "source": "GeminiSecure Resident App Screens/01 Onboarding and Auth.html",
+      "source_sha256": "f7244eb490322c25d285726ca757e9c70bfbbd481a340e9e1e5aaae45cc618d9",
+      "css_sha256": "97ccac5924527e1c0e298c325c25d72a97211ca561ecd4e2ce762570c5d1d60e",
+      "style_blocks": 1,
+      "css_bytes": 8867,
+      "sheet": "resident-app-01-onboarding-and-auth"
+    },
+    {
+      "slug": "resident-app-02-home-panic-and-visitors",
+      "body_class": "wf-resident-app-02-home-panic-and-visitors",
+      "source": "GeminiSecure Resident App Screens/02 Home Panic and Visitors.html",
+      "source_sha256": "cf436b22be28d64a1b17dfc9bb567515a58048556631c8a4631bf30744321e44",
+      "css_sha256": "d668926c94d2219275b099bb50c715270b2fbc0723694586538a818e281d9bcf",
+      "style_blocks": 1,
+      "css_bytes": 15482,
+      "sheet": "resident-app-02-home-panic-and-visitors"
+    },
+    {
+      "slug": "resident-app-03-dues-maintenance-and-notices",
+      "body_class": "wf-resident-app-03-dues-maintenance-and-notices",
+      "source": "GeminiSecure Resident App Screens/03 Dues Maintenance and Notices.html",
+      "source_sha256": "cf89c2faa61c999ed08df0ac8727002b266c737eea7ff62c04cf182960a769b0",
+      "css_sha256": "af44e3d7a6a309b68bd57efe766146bbd767fb13e67b1c411b89185b9bd58805",
+      "style_blocks": 1,
+      "css_bytes": 13376,
+      "sheet": "resident-app-03-dues-maintenance-and-notices"
+    },
+    {
+      "slug": "resident-app-04-meetings-incident-and-voting",
+      "body_class": "wf-resident-app-04-meetings-incident-and-voting",
+      "source": "GeminiSecure Resident App Screens/04 Meetings Incident and Voting.html",
+      "source_sha256": "629772ac0b85b3f4a9557bdb923d5ac0da7bcf5c73815a785afb3e93d38c85c6",
+      "css_sha256": "9ea3259786dbf3966f4b6752d95091048ea5e5c70f6ffe689cd2ae3fd5ae760f",
+      "style_blocks": 1,
+      "css_bytes": 13195,
+      "sheet": "resident-app-04-meetings-incident-and-voting"
+    },
+    {
+      "slug": "resident-app-05-profile-and-settings",
+      "body_class": "wf-resident-app-05-profile-and-settings",
+      "source": "GeminiSecure Resident App Screens/05 Profile and Settings.html",
+      "source_sha256": "577152a4b914ecc4f232d518f768cf9586429d52e807bf8eb43e54537436cde7",
+      "css_sha256": "72d6ac9245e63b14b68b44d93b46c02824f124e5dff09a4ff070f76c3c5b421a",
+      "style_blocks": 1,
+      "css_bytes": 9560,
+      "sheet": "resident-app-05-profile-and-settings"
+    },
+    {
+      "slug": "resident-app-06-amenities-live-meeting-and-ballot",
+      "body_class": "wf-resident-app-06-amenities-live-meeting-and-ballot",
+      "source": "GeminiSecure Resident App Screens/06 Amenities Live Meeting and Ballot.html",
+      "source_sha256": "38b61912a97d3b1173592494810262be5f492de2c24647758dcb2111c8425c3d",
+      "css_sha256": "a0acfaac05dd35b5f747ca7ec93fa7d9a38fa1df32d87916ce72e2d71b615065",
+      "style_blocks": 1,
+      "css_bytes": 12810,
+      "sheet": "resident-app-06-amenities-live-meeting-and-ballot"
+    },
+    {
+      "slug": "resident-app-07-approvals-status-and-results",
+      "body_class": "wf-resident-app-07-approvals-status-and-results",
+      "source": "GeminiSecure Resident App Screens/07 Approvals Status and Results.html",
+      "source_sha256": "a98f68e25a1ca69720d17551f2bc47fa2066078a3bd07fbee979223ccb9a5a99",
+      "css_sha256": "12715fe212fedfb0f56bc721257d521b530198cde05b3b6f35eb1b02770e2276",
+      "style_blocks": 1,
+      "css_bytes": 12717,
+      "sheet": "resident-app-07-approvals-status-and-results"
+    },
+    {
+      "slug": "resident-app-08-permissions-and-household",
+      "body_class": "wf-resident-app-08-permissions-and-household",
+      "source": "GeminiSecure Resident App Screens/08 Permissions and Household.html",
+      "source_sha256": "29077ffc9d988ba31e75987b5ca487789efadb81106edda400404a2d169c9b12",
+      "css_sha256": "ec060bb8538b76b81dbe33ab53a81427eb5dd8255eb1792277f8f5b24afb9fd7",
+      "style_blocks": 1,
+      "css_bytes": 10304,
+      "sheet": "resident-app-08-permissions-and-household"
+    },
+    {
+      "slug": "resident-app-09-privacy-vote-review-and-notice",
+      "body_class": "wf-resident-app-09-privacy-vote-review-and-notice",
+      "source": "GeminiSecure Resident App Screens/09 Privacy Vote Review and Notice.html",
+      "source_sha256": "ca6216709964e7c4471267524a2a07b074839eff740591e9ef789e6adcb0c846",
+      "css_sha256": "4ef901d4e75e5e45e30cd4eb358cd5f38fc844d11c131efb209950acfc8f7077",
+      "style_blocks": 1,
+      "css_bytes": 11057,
+      "sheet": "resident-app-09-privacy-vote-review-and-notice"
+    },
+    {
+      "slug": "resident-app-10-bookings-support-and-autopay",
+      "body_class": "wf-resident-app-10-bookings-support-and-autopay",
+      "source": "GeminiSecure Resident App Screens/10 Bookings Support and AutoPay.html",
+      "source_sha256": "3e5bb8e290902dcfb3f528a3f7598050a2a1c2207b1c73ad868345a00cc282e1",
+      "css_sha256": "490cc37672fa9f2936caed6bd33b71c58ece2634ec9ec0c87c46c7e38951a5bd",
+      "style_blocks": 1,
+      "css_bytes": 11696,
+      "sheet": "resident-app-10-bookings-support-and-autopay"
+    }
+  ]
+}

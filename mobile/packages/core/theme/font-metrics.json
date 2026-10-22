@@ -1,0 +1,192 @@
+{
+  "IBMPlexMono-Medium": {
+    "postscriptName": "IBMPlexMono-Medium",
+    "unitsPerEm": 1000,
+    "hhea": {
+      "ascender": 1025,
+      "descender": -275,
+      "lineGap": 0
+    },
+    "typo": {
+      "ascender": 1025,
+      "descender": -275,
+      "lineGap": 0
+    },
+    "useTypoMetrics": true,
+    "normalLineHeight": 1.3,
+    "ascent": 1.025,
+    "descent": 0.275,
+    "lineGap": 0
+  },
+  "IBMPlexMono-Regular": {
+    "postscriptName": "IBMPlexMono-Regular",
+    "unitsPerEm": 1000,
+    "hhea": {
+      "ascender": 1025,
+      "descender": -275,
+      "lineGap": 0
+    },
+    "typo": {
+      "ascender": 1025,
+      "descender": -275,
+      "lineGap": 0
+    },
+    "useTypoMetrics": true,
+    "normalLineHeight": 1.3,
+    "ascent": 1.025,
+    "descent": 0.275,
+    "lineGap": 0
+  },
+  "Inter-Bold": {
+    "postscriptName": "Inter-Bold",
+    "unitsPerEm": 2048,
+    "hhea": {
+      "ascender": 1984,
+      "descender": -494,
+      "lineGap": 0
+    },
+    "typo": {
+      "ascender": 1984,
+      "descender": -494,
+      "lineGap": 0
+    },
+    "useTypoMetrics": true,
+    "normalLineHeight": 1.20996,
+    "ascent": 0.96875,
+    "descent": 0.24121,
+    "lineGap": 0
+  },
+  "Inter-Italic": {
+    "postscriptName": "Inter-Italic",
+    "unitsPerEm": 2048,
+    "hhea": {
+      "ascender": 1984,
+      "descender": -494,
+      "lineGap": 0
+    },
+    "typo": {
+      "ascender": 1984,
+      "descender": -494,
+      "lineGap": 0
+    },
+    "useTypoMetrics": true,
+    "normalLineHeight": 1.20996,
+    "ascent": 0.96875,
+    "descent": 0.24121,
+    "lineGap": 0
+  },
+  "Inter-Medium": {
+    "postscriptName": "Inter-Medium",
+    "unitsPerEm": 2048,
+    "hhea": {
+      "ascender": 1984,
+      "descender": -494,
+      "lineGap": 0
+    },
+    "typo": {
+      "ascender": 1984,
+      "descender": -494,
+      "lineGap": 0
+    },
+    "useTypoMetrics": true,
+    "normalLineHeight": 1.20996,
+    "ascent": 0.96875,
+    "descent": 0.24121,
+    "lineGap": 0
+  },
+  "Inter-Regular": {
+    "postscriptName": "Inter-Regular",
+    "unitsPerEm": 2048,
+    "hhea": {
+      "ascender": 1984,
+      "descender": -494,
+      "lineGap": 0
+    },
+    "typo": {
+      "ascender": 1984,
+      "descender": -494,
+      "lineGap": 0
+    },
+    "useTypoMetrics": true,
+    "normalLineHeight": 1.20996,
+    "ascent": 0.96875,
+    "descent": 0.24121,
+    "lineGap": 0
+  },
+  "Inter-SemiBold": {
+    "postscriptName": "Inter-SemiBold",
+    "unitsPerEm": 2048,
+    "hhea": {
+      "ascender": 1984,
+      "descender": -494,
+      "lineGap": 0
+    },
+    "typo": {
+      "ascender": 1984,
+      "descender": -494,
+      "lineGap": 0
+    },
+    "useTypoMetrics": true,
+    "normalLineHeight": 1.20996,
+    "ascent": 0.96875,
+    "descent": 0.24121,
+    "lineGap": 0
+  },
+  "Poppins-Bold": {
+    "postscriptName": "Poppins-Bold",
+    "unitsPerEm": 1000,
+    "hhea": {
+      "ascender": 1050,
+      "descender": -350,
+      "lineGap": 100
+    },
+    "typo": {
+      "ascender": 1050,
+      "descender": -350,
+      "lineGap": 100
+    },
+    "useTypoMetrics": true,
+    "normalLineHeight": 1.5,
+    "ascent": 1.05,
+    "descent": 0.35,
+    "lineGap": 0.1
+  },
+  "Poppins-Medium": {
+    "postscriptName": "Poppins-Medium",
+    "unitsPerEm": 1000,
+    "hhea": {
+      "ascender": 1050,
+      "descender": -350,
+      "lineGap": 100
+    },
+    "typo": {
+      "ascender": 1050,
+      "descender": -350,
+      "lineGap": 100
+    },
+    "useTypoMetrics": true,
+    "normalLineHeight": 1.5,
+    "ascent": 1.05,
+    "descent": 0.35,
+    "lineGap": 0.1
+  },
+  "Poppins-SemiBold": {
+    "postscriptName": "Poppins-SemiBold",
+    "unitsPerEm": 1000,
+    "hhea": {
+      "ascender": 1050,
+      "descender": -350,
+      "lineGap": 100
+    },
+    "typo": {
+      "ascender": 1050,
+      "descender": -350,
+      "lineGap": 100
+    },
+    "useTypoMetrics": true,
+    "normalLineHeight": 1.5,
+    "ascent": 1.05,
+    "descent": 0.35,
+    "lineGap": 0.1
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "name": "@gs/core",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Shared by the Guard App and the Resident App: API client, auth, theme, UI kit, offline outbox, pass verification.",
+  "main": "index.ts",
+  "types": "index.ts",
+  "exports": {
+    ".": "./index.ts",
+    "./api": "./api/index.ts",
+    "./api/guard": "./api/generated/guardApi.ts",
+    "./api/resident": "./api/generated/residentApi.ts",
+    "./auth": "./auth/index.ts",
+    "./theme": "./theme/index.ts",
+    "./theme/tokens.json": "./theme/tokens.json",
+    "./theme/board-only.json": "./theme/board-only.json",
+    "./theme/tailwind": "./theme/tailwind.cjs",
+    "./ui": "./ui/index.ts",
+    "./offline": "./offline/index.ts",
+    "./live": "./live/index.ts",
+    "./crypto": "./crypto/index.ts",
+    "./crypto/deviceUid": "./crypto/deviceUid.ts",
+    "./lib": "./lib/index.ts",
+    "./safety": "./safety/index.ts",
+    "./notify": "./notify/index.ts",
+    "./notify/links": "./notify/links.ts",
+    "./notify/registration": "./notify/registration.ts",
+    "./fidelity": "./fidelity/index.ts",
+    "./speech": "./speech/dictation.ts",
+    "./assets/fonts/*": "./assets/fonts/*"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "jest"
+  },
+  "peerDependencies": {
+    "expo": "*",
+    "react": "*",
+    "react-native": "*"
+  },
+  "dependencies": {
+    "pusher-js": "8.6.0"
+  }
+}

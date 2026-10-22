@@ -1,0 +1,21 @@
+{
+  "about": "The compact readiness bitmask a ring.receipt carries as `ready` (GUARD_RING_DESIGN section 6.6, G15): bit n set means the row is ON at the moment of the receipt. The phone builds it in RingSound.bits(); the server must read it with this same table. The `detail` of a `shown` receipt is the live sound check, format below.",
+  "bits": {
+    "0": "notifications: the app's notifications are on",
+    "1": "ring_channel: the Call-style alerts channel exists, is not blocked, and has a sound",
+    "2": "full_screen: full-screen alerts are allowed (always on below Android 14, where no grant exists)",
+    "3": "dnd_bypass: the ring channel's Do Not Disturb bypass, read back from Android",
+    "4": "battery: exempt from battery optimisation",
+    "5": "background: background activity is not restricted",
+    "6": "alarm_volume_ok: the alarm volume is at least 30 percent of its maximum",
+    "7": "alarm_tone: the phone has an alarm tone set",
+    "8": "screen_lock: the phone has a secure screen lock",
+    "9": "alarm_volume_on: the alarm volume is above 0"
+  },
+  "example": { "ready": 1023, "means": "every row on" },
+  "detail": {
+    "format": "imp=<0-5 or x>;snd=<0|1>;vol=<alarm volume>/<max>;dnd=<pass|block|unknown>;fsi=<0|1>;lk=<0|1>",
+    "example": "imp=4;snd=1;vol=5/7;dnd=pass;fsi=1;lk=1",
+    "soundOn": "imp >= 4 AND snd = 1 AND vol > 0 AND dnd = pass; anything else, dnd=unknown included, is 'sound not confirmed'"
+  }
+}
